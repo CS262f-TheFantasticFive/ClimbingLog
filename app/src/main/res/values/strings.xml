@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ClimbingLogAppPrototype</string>
+    <string name="idea_name">Rock Climbing Application</string>
+    <string name="team_name">Team F - The Fantastic Five</string>
+    <string name="action_settings">Settings</string>
+</resources>
