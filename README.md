@@ -18,16 +18,16 @@ Our Climbing Log App should give users the ability to log how long they spent cl
 # Goals:
 + Ability to log climbs (Have a user log at least one route per climb).
 + Ability to add routes (can mark as warm-up, won't count towards average).
-+ Have a page for each Climbing Wall that contains.
-+ Recently Climbed routes.
-+ Who all climbs at this wall.
-+ Average difficulty climbed.
-+ Have a profile page for each person that contains.
-+ Recently Climbed routes.
-+ Where they have climbed/Favorite Places.
-+ Where they'd like to climb.
-+ What equipment they have.
-+ Average difficulty climbed.
++ Have a page for each Climbing Wall that contains:
+  + Recently Climbed routes.
+  + Who all climbs at this wall.
+  + Average difficulty climbed.
++ Have a profile page for each person that contains:
+  + Recently Climbed routes.
+  + Where they have climbed/Favorite Places.
+  + Where they'd like to climb.
+  + What equipment they have.
+  + Average difficulty climbed.
 + Google/Facebook account log-in.
 
 # Stretch Goals (Things that we would like to strive for but could not implement in the end):
