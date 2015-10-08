@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.calvin.cs262.climbinglogappprototype" >
+    <uses-sdk android:minSdkVersion="11" />  <!-- Adding the Action Bar - Chris -->
 
     <application
         android:allowBackup="true"
