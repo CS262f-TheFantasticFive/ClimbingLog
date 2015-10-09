@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog-1.iml" filepath="$PROJECT_DIR$/ClimbingLog-1.iml" />
+>>>>>>> f3bf9827f5c63934cc100287583a641c407c7041
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
