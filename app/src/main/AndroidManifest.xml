@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.calvin.cs262.climbinglogappprototype" >
 
+    <uses-sdk android:minSdkVersion="11"> </uses-sdk>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
