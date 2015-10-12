@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -47,5 +48,13 @@ public class MainActivity extends Activity {
     //Settings method
     private void openSettings(){
         startActivity(new Intent(Settings.ACTION_SETTINGS));
+    }
+
+    /**
+     * This will start up a new activity from the main one if the button is pressed.
+     */
+    public void setNew(View view) {
+        Intent myIntent = new Intent(MainActivity.this, ClimbLogger.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }
