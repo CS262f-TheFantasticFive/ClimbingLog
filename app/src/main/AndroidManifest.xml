@@ -23,7 +23,7 @@
         </activity> <!-- Main activity that is seen at start-up -->
 
         <activity android:name=".ClimbLogger"
-            android:label="@string/mock_up1" >  <!-- New activity that starts up on button press -->
+            android:label="@string/log_label" >  <!-- New activity that starts up on button press -->
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" /> <!--Show data -->
@@ -33,6 +33,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
             </intent-filter>
+        </activity>
+
+        <activity android:name=".GearList"
+            android:label="@string/gear_label" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DATA" />
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
         </activity>
 
 

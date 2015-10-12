@@ -4,17 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by Chris on 10/11/2015.
+ * Created by cpd5 on 10/12/2015.
  */
-public class ClimbLogger extends Activity {
+public class GearList extends Activity {
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.climb_logger);
+        setContentView(R.layout.gear_list);
     }
 
     protected void onPause() {
         super.onPause();
     }
-
 }
