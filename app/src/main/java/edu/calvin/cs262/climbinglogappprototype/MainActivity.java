@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -47,5 +48,21 @@ public class MainActivity extends Activity {
     //Settings method
     private void openSettings(){
         startActivity(new Intent(Settings.ACTION_SETTINGS));
+    }
+
+    /**
+     * This will start up the activity that has the stats activity.
+     */
+    public void startLogger(View view) {
+        Intent myIntent = new Intent(MainActivity.this, ClimbLogger.class);
+        MainActivity.this.startActivity(myIntent);
+    }
+
+    /**
+     * This will start up the activity that has the gear list.
+     */
+    public void startGearList(View view) {
+        Intent myIntent = new Intent(MainActivity.this, GearList.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }
