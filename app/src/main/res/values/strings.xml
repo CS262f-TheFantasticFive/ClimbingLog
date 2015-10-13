@@ -7,9 +7,9 @@
     <string name="action_settings">Settings</string>
     <!-- In ClimbLogger activity -->
     <string name="log_label">My Stats</string>
-    <string name="mock_display">This is where a user will log their climbs and stats.</string>
+    <string name="mock_display">This is where a user will log their climbs and stats. (User Story 1)</string>
     <!-- In GearList activity -->
     <string name="gear_label">My Gear</string>
-    <string name="mock_display2">This is where a user will see their gear.</string>
+    <string name="mock_display2">This is where a user will see their gear. (User Story 2)</string>
 
 </resources>
