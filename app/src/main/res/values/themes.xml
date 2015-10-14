@@ -17,6 +17,6 @@
 
     <style name="MyActionBarTitleText"
         parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/yellow</item>
     </style>
 </resources>
