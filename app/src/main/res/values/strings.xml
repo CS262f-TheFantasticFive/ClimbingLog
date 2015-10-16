@@ -11,5 +11,9 @@
     <!-- In GearList activity -->
     <string name="gear_label">My Gear</string>
     <string name="mock_display2">This is where a user will see their gear. (User Story 2)</string>
-
+    <!-- Navbar -->
+    <string name="NB_profile_label">Profile</string>
+    <string name="NB_gyms_label">Gyms</string>
+    <string name="NB_friends_label">Friends</string>
+    <string name="NB_routes_label">Routes</string>
 </resources>
