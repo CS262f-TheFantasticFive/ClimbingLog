@@ -1,4 +1,4 @@
-package edu.calvin.cs262.climbinglogappprototype;
+package edu.calvin.cs262.climbinglogapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
