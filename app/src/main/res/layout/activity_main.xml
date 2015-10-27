@@ -82,4 +82,14 @@
             android:onClick="startLogger"
             android:layout_marginLeft="245dp"
             android:layout_marginTop="75dp"/>
+
+    <ImageButton
+        android:src="@drawable/button_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/button6"
+        android:layout_alignParentStart="false" />
+
 </RelativeLayout>
