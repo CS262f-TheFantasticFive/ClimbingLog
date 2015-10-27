@@ -88,7 +88,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView2" />
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/button6"
+        android:layout_alignParentStart="false" />
 
 </RelativeLayout>
