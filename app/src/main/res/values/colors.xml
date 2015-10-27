@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- this xml file is used for assigning color names to hex values -->
 <resources>
     <color name="black">#000</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
     <color name="darkgreen">#248F24</color>
     <color name="orange">#FF9900</color>
+    <color name="yellow">#FFFF00</color>
 
 </resources>

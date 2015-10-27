@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.calvin.cs262.climbinglogappprototype" >
+    package="edu.calvin.cs262.climbinglogapp" >
 
     <uses-sdk android:minSdkVersion="11"> </uses-sdk>
 
@@ -11,7 +11,7 @@
         android:theme="@style/CustomActionBarTheme" >
 
         <activity
-            android:name=".MainActivity"
+            android:name="edu.calvin.cs262.climbinglogapp.MainActivity"
             android:label="@string/app_name" >
 
             <intent-filter>
@@ -22,7 +22,7 @@
 
         </activity> <!-- Main activity that is seen at start-up -->
 
-        <activity android:name=".ClimbLogger"
+        <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
             android:label="@string/log_label" >  <!-- New activity that starts up on button press -->
 
             <intent-filter>
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GearList"
+        <activity android:name="edu.calvin.cs262.climbinglogapp.GearList"
             android:label="@string/gear_label" >
 
             <intent-filter>
