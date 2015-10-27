@@ -51,18 +51,10 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * This will start up the activity that has the stats activity.
-     */
-    public void startLogger(View view) {
-        Intent myIntent = new Intent(MainActivity.this, ClimbLogger.class);
-        MainActivity.this.startActivity(myIntent);
-    }
-
-    /**
      * This will start up the activity that has the gear list.
      */
-    public void startGearList(View view) {
-        Intent myIntent = new Intent(MainActivity.this, GearList.class);
+    public void startProfile(View view) {
+        Intent myIntent = new Intent(MainActivity.this, Profile.class);
         MainActivity.this.startActivity(myIntent);
     }
 }

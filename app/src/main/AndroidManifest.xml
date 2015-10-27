@@ -22,21 +22,8 @@
 
         </activity> <!-- Main activity that is seen at start-up -->
 
-        <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
-            android:label="@string/log_label" >  <!-- New activity that starts up on button press -->
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" /> <!--Show data -->
-                <action android:name="android.intent.action.DATA" /> <!-- Data -->
-                <action android:name="android.intent.action.PICK" /> <!-- Pick something -->
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name="edu.calvin.cs262.climbinglogapp.GearList"
-            android:label="@string/gear_label" >
+        <activity android:name="edu.calvin.cs262.climbinglogapp.Profile"
+            android:label="@string/profile_label" >
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
