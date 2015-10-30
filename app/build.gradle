@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "edu.calvin.cs262.climbinglogappprototype"
+        applicationId "edu.calvin.cs262.climbinglogapp"
         minSdkVersion 22
         targetSdkVersion 22
         versionCode 1

@@ -1,4 +1,4 @@
-package edu.calvin.cs262.climbinglogappprototype;
+package edu.calvin.cs262.climbinglogapp;
 
 import android.app.Activity;
 import android.app.SearchManager;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -47,5 +48,13 @@ public class MainActivity extends Activity {
     //Settings method
     private void openSettings(){
         startActivity(new Intent(Settings.ACTION_SETTINGS));
+    }
+
+    /**
+     * This will start up the activity that has the gear list.
+     */
+    public void startProfile(View view) {
+        Intent myIntent = new Intent(MainActivity.this, Profile.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }

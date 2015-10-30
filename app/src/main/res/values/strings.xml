@@ -1,7 +1,18 @@
 <resources>
-    <string name="app_name">ClimbingLogAppPrototype</string>
+    <!-- In main activity -->
+    <string name="app_name">On Belay</string>
     <string name="idea_name">Rock Climbing Application</string>
     <string name="team_name">Team F - The Fantastic Five</string>
     <string name="action_search">Search!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Profile -->
+    <string name="stats_label">My Stats</string>
+    <string name="profile_label">My Profile</string>
+
+    <!-- Navbar -->
+    <string name="NB_profile_label">Profile</string>
+    <string name="NB_gyms_label">Gyms</string>
+    <string name="NB_friends_label">Friends</string>
+    <string name="NB_routes_label">Routes</string>
 </resources>
