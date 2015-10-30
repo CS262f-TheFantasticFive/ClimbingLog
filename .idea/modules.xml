@@ -3,7 +3,22 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog.iml" filepath="$PROJECT_DIR$/ClimbingLog.iml" />
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/ClimbingLog-1.iml" filepath="$PROJECT_DIR$/ClimbingLog-1.iml" />
+>>>>>>> f3bf9827f5c63934cc100287583a641c407c7041
+=======
+>>>>>>> b534e13cef4366785b7f95ddb110682bd488a5f6
+=======
+>>>>>>> 5c6a5114b790f74b1cf6a61a63a74a66aacebdf9
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+=======
+>>>>>>> ee281ccfe9c5557daa04222d9af59ea77c17aeab
     </modules>
   </component>
 </project>
