@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * This will start up the activity that has the gear list.
+     * This will start up the activity that shows the profile page of a user.
      */
     public void startProfile(View view) {
         Intent myIntent = new Intent(MainActivity.this, Profile.class);
