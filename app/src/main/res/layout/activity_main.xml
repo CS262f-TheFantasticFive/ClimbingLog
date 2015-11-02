@@ -22,4 +22,59 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
+    <!-- Navbar Button 1 - Profile -->
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NB_profile_label"
+            android:id="@+id/button3"
+            android:onClick="startProfile"
+            android:layout_marginTop="75dp"/>
+
+        <!-- Navbar Button 2 - Gyms -->
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NB_gyms_label"
+            android:id="@+id/button4"
+            android:onClick="startProfile"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="75dp"
+            android:clickable="false"/>
+
+        <!-- Navbar Button 3 - Friends -->
+        <Button
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NB_friends_label"
+            android:id="@+id/button5"
+            android:onClick="startProfile"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="75dp"
+            android:clickable="false"/>
+
+        <!-- Navbar Button 4 - Routes -->
+        <Button
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NB_routes_label"
+            android:id="@+id/button6"
+            android:onClick="startProfile"
+            android:layout_marginLeft="245dp"
+            android:layout_marginTop="75dp"
+            android:clickable="false"/>
+
+    <!-- Big green button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startProfile"
+            android:background="@drawable/button_selector"
+            android:src="@drawable/button_selector"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageButton" />
+
 </RelativeLayout>
