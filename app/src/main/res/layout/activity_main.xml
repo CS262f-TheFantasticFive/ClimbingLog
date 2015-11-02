@@ -64,4 +64,16 @@
             android:layout_marginTop="75dp"
             android:clickable="false"/>
 
+    <!-- Big green button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startProfile"
+            android:background="@drawable/button_3d"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageButton" />
+
 </RelativeLayout>
