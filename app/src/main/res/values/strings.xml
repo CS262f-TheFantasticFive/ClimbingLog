@@ -15,4 +15,8 @@
     <string name="NB_gyms_label">Gyms</string>
     <string name="NB_friends_label">Friends</string>
     <string name="NB_routes_label">Routes</string>
+
+    <!-- Logger for climbs -->
+    <string name="logger_label">My Logs</string>
+
 </resources>
