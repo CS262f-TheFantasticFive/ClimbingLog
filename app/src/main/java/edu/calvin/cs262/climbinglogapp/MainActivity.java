@@ -57,4 +57,12 @@ public class MainActivity extends Activity {
         Intent myIntent = new Intent(MainActivity.this, Profile.class);
         MainActivity.this.startActivity(myIntent);
     }
+
+    /**
+     * This will start up the logger should a user click the green button.
+     */
+    public void startLog(View view) {
+        Intent myIntent2 = new Intent(MainActivity.this, ClimbLogger.class);
+        MainActivity.this.startActivity(myIntent2);
+    }
 }
