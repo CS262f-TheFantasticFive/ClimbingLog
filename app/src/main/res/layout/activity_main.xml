@@ -70,11 +70,9 @@
             android:layout_height="wrap_content"
             android:onClick="startProfile"
             android:background="@drawable/button_selector"
-            android:src="@drawable/button_selector"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:id="@+id/imageButton"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/imageButton" />
+            android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
