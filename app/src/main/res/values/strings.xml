@@ -18,5 +18,7 @@
 
     <!-- Logger for climbs -->
     <string name="logger_label">My Logs</string>
+    <!-- Radio buttons -->
+    <string name="radio_indoor">Indoor</string>
 
 </resources>
