@@ -1,19 +1,24 @@
 <resources>
     <!-- In main activity -->
-    <string name="app_name">Climbing Log App</string>
+    <string name="app_name">On Belay</string>
     <string name="idea_name">Rock Climbing Application</string>
     <string name="team_name">Team F - The Fantastic Five</string>
     <string name="action_search">Search!</string>
     <string name="action_settings">Settings</string>
-    <!-- In ClimbLogger activity -->
-    <string name="log_label">My Stats</string>
-    <string name="mock_display">This is where a user will log their climbs and stats. (User Story 1)</string>
-    <!-- In GearList activity -->
-    <string name="gear_label">My Gear</string>
-    <string name="mock_display2">This is where a user will see their gear. (User Story 2)</string>
+
+    <!-- Profile -->
+    <string name="stats_label">My Stats</string>
+    <string name="profile_label">My Profile</string>
+
     <!-- Navbar -->
     <string name="NB_profile_label">Profile</string>
     <string name="NB_gyms_label">Gyms</string>
     <string name="NB_friends_label">Friends</string>
     <string name="NB_routes_label">Routes</string>
+
+    <!-- Logger for climbs -->
+    <string name="logger_label">My Logs</string>
+    <!-- Radio buttons -->
+    <string name="radio_indoor">Indoor</string>
+
 </resources>
