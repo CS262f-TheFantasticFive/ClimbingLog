@@ -1,0 +1,4 @@
+Database Schema:
+Climber(ID, Password, emailAddress, name, friends, dateCreated)
+Climb(ID, name, color, difficulty, type, notes, location, time)
+ClimberClimb(climberID, climbID)
