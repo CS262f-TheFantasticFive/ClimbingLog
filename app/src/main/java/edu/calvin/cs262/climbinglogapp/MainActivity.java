@@ -48,15 +48,42 @@ public class MainActivity extends FragmentActivity {
      * This will start up the activity that shows the profile page of a user.
      */
     public void startProfile(View view) {
-        Intent myIntent = new Intent(MainActivity.this, Profile.class);
-        MainActivity.this.startActivity(myIntent);
+        Intent profileIntent = new Intent(MainActivity.this, Profile.class);
+        MainActivity.this.startActivity(profileIntent);
     }
 
     /**
      * This will start up the logger should a user click the green button.
      */
     public void startLog(View view) {
-        Intent myIntent2 = new Intent(MainActivity.this, ClimbLogger.class);
-        MainActivity.this.startActivity(myIntent2);
+        Intent logIntent = new Intent(MainActivity.this, ClimbLogger.class);
+        MainActivity.this.startActivity(logIntent);
+    }
+
+    /*
+     * This will start the activity that brings the user to the Friends page
+     */
+
+    public void startFriends(View view) {
+        Intent friendsIntent = new Intent(MainActivity.this, Friends.class);
+        MainActivity.this.startActivity(friendsIntent);
+    }
+
+    /*
+     * This will start the activity that brings the user to the Gyms page
+     */
+
+    public void startGyms(View view) {
+        Intent gymsIntent = new Intent(MainActivity.this, Gyms.class);
+        MainActivity.this.startActivity(gymsIntent);
+    }
+
+    /*
+     * This will start the activity that brings the user to the Routes page
+     */
+
+    public void startRoutes(View view) {
+        Intent routesIntent = new Intent(MainActivity.this, Routes.class);
+        MainActivity.this.startActivity(routesIntent);
     }
 }
