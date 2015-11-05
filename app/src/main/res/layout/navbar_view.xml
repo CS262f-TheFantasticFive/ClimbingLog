@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:text="@string/NB_profile_label"
         android:id="@+id/profile_button"
-        android:onClick="startProfile"
         android:layout_marginTop="1dp"
         android:layout_marginLeft="5dp" />
 
@@ -21,7 +20,6 @@
         android:layout_height="wrap_content"
         android:text="@string/NB_gyms_label"
         android:id="@+id/gyms_button"
-        android:onClick="startProfile"
         android:layout_marginLeft="85dp"
         android:layout_marginTop="1dp"
         android:clickable="false"/>
@@ -32,7 +30,6 @@
         android:layout_height="wrap_content"
         android:text="@string/NB_friends_label"
         android:id="@+id/friends_button"
-        android:onClick="startProfile"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="1dp"
         android:clickable="false"/>
@@ -43,7 +40,6 @@
         android:layout_height="wrap_content"
         android:text="@string/NB_routes_label"
         android:id="@+id/routes_button"
-        android:onClick="startProfile"
         android:layout_marginLeft="245dp"
         android:layout_marginTop="1dp"
         android:clickable="false"/>
