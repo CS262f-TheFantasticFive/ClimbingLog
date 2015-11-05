@@ -47,10 +47,10 @@ public class MainActivity extends FragmentActivity {
     /**
      * This will start up the activity that shows the profile page of a user.
      */
-    public void startProfile(View view) {
-        Intent myIntent = new Intent(MainActivity.this, Profile.class);
-        MainActivity.this.startActivity(myIntent);
-    }
+//    public void startProfile(View view) {
+//        Intent myIntent = new Intent(MainActivity.this, Profile.class);
+//        MainActivity.this.startActivity(myIntent);
+//    }
 
     /**
      * This will start up the logger should a user click the green button.
