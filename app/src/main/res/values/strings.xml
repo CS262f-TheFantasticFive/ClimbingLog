@@ -10,6 +10,15 @@
     <string name="stats_label">My Stats</string>
     <string name="profile_label">My Profile</string>
 
+    <!-- Gyms -->
+    <string name="gyms_label">My Gyms</string>
+
+    <!-- Routes -->
+    <string name="routes_label">My Routes</string>
+
+    <!-- Friends -->
+    <string name="friends_label">My Friends</string>
+
     <!-- Navbar -->
     <string name="NB_profile_label">Profile</string>
     <string name="NB_gyms_label">Gyms</string>
@@ -18,6 +27,7 @@
 
     <!-- Logger for climbs -->
     <string name="logger_label">My Logs</string>
+
     <!-- Radio buttons -->
     <string name="radio_indoor">Indoor</string>
 
