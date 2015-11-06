@@ -24,6 +24,9 @@ public class ClimbLogger extends FragmentActivity {
         final CheckBox notes_box = (CheckBox) findViewById(R.id.notes_box);
     }
 
+    /**
+     * This method determines what should happen when a checkbox is clicked.
+     */
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
 

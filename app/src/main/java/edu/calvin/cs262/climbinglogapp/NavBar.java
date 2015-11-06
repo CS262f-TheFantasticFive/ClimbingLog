@@ -15,6 +15,9 @@ import android.widget.Button;
  */
 public class NavBar extends Fragment implements OnClickListener {
 
+    /**
+     * This method creates the NavBarView and adds onClickListeners() to each button.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //Create the NavBar view
@@ -26,31 +29,38 @@ public class NavBar extends Fragment implements OnClickListener {
         Button routes = (Button) NavBarView.findViewById(R.id.routes_button);
 
         //Set on click listeners for each button
-        //Profile
-        profile.setOnClickListener(this);
-        gyms.setOnClickListener(this);
-        friends.setOnClickListener(this);
-        routes.setOnClickListener(this);
+        profile.setOnClickListener(this);  //Profile
+        gyms.setOnClickListener(this);   //Gyms
+        friends.setOnClickListener(this);   //Friends
+        routes.setOnClickListener(this);  //Routes
 
         return NavBarView;
     }
 
+    /**
+     * This method sets OnClickListeners for each button. (It gets called in onCreateView(); see the call to setOnClickListener(this)).
+     * Each listener activates the corresponding Activity.
+     * Adapted from StackOverflow: http://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android.
+     */
     @Override
     public void onClick(View v) {
+        //Get the button that called setOnClickListener()
+        //The process is the same for each button clicked:
+        //Create an intent, start it up.
         switch (v.getId()) {
-            case R.id.profile_button:
+            case R.id.profile_button:  //Profile
                 Intent profileIntent = new Intent(getActivity(), Profile.class);
                 startActivity(profileIntent);
                 break;
-            case R.id.gyms_button:
+            case R.id.gyms_button: //Gyms
                 Intent gymsIntent = new Intent(getActivity(), Gyms.class);
                 startActivity(gymsIntent);
                 break;
-            case R.id.friends_button:
+            case R.id.friends_button: //Friends
                 Intent friendsIntent = new Intent(getActivity(), Friends.class);
                 startActivity(friendsIntent);
                 break;
-            case R.id.routes_button:
+            case R.id.routes_button: //Routes
                 Intent routesIntent = new Intent(getActivity(), Routes.class);
                 startActivity(routesIntent);
                 break;

@@ -14,10 +14,11 @@ public class Gyms extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gyms);
-        Button disableGyms = (Button) findViewById(R.id.gyms_button);
-        disableGyms.setEnabled(false);
+        Button disableGyms = (Button) findViewById(R.id.gyms_button);  //Disable the corresponding button
+        disableGyms.setEnabled(false);  //To keep people from creating the same activity over and over again
     }
 
+    //onPause() method
     protected void onPause() {
         super.onPause();
     }

@@ -16,10 +16,11 @@ public class Friends extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
-        Button disableFriends = (Button) findViewById(R.id.friends_button);
-        disableFriends.setEnabled(false);
+        Button disableFriends = (Button) findViewById(R.id.friends_button);  //Disable the corresponding button
+        disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
     }
 
+    //onPause() method
     protected void onPause() {
         super.onPause();
     }
