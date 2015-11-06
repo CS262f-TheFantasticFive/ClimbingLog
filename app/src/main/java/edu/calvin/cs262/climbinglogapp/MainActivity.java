@@ -47,10 +47,10 @@ public class MainActivity extends FragmentActivity {
     /**
      * This will start up the activity that shows the profile page of a user.
      */
-    public void startProfile(View view) {
-        Intent profileIntent = new Intent(MainActivity.this, Profile.class);
-        MainActivity.this.startActivity(profileIntent);
-    }
+ //   public void startProfile(View view) {
+ //       Intent profileIntent = new Intent(MainActivity.this, Profile.class);
+  //      MainActivity.this.startActivity(profileIntent);
+  //  }
 
     /**
      * This will start up the logger should a user click the green button.
@@ -64,26 +64,26 @@ public class MainActivity extends FragmentActivity {
      * This will start the activity that brings the user to the Friends page
      */
 
-    public void startFriends(View view) {
-        Intent friendsIntent = new Intent(MainActivity.this, Friends.class);
-        MainActivity.this.startActivity(friendsIntent);
-    }
+    //public void startFriends(View view) {
+    //    Intent friendsIntent = new Intent(MainActivity.this, Friends.class);
+   //     MainActivity.this.startActivity(friendsIntent);
+   // }
 
     /*
      * This will start the activity that brings the user to the Gyms page
      */
 
-    public void startGyms(View view) {
-        Intent gymsIntent = new Intent(MainActivity.this, Gyms.class);
-        MainActivity.this.startActivity(gymsIntent);
-    }
+   // public void startGyms(View view) {
+   //     Intent gymsIntent = new Intent(MainActivity.this, Gyms.class);
+   //     MainActivity.this.startActivity(gymsIntent);
+   // }
 
     /*
      * This will start the activity that brings the user to the Routes page
      */
 
-    public void startRoutes(View view) {
-        Intent routesIntent = new Intent(MainActivity.this, Routes.class);
-        MainActivity.this.startActivity(routesIntent);
-    }
+   // public void startRoutes(View view) {
+   //     Intent routesIntent = new Intent(MainActivity.this, Routes.class);
+   //     MainActivity.this.startActivity(routesIntent);
+    //}
 }

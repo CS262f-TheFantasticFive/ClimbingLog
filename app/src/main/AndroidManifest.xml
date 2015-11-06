@@ -37,9 +37,54 @@
 
         </activity>
 
+        <!-- Gyms page -->
+        <activity android:name="edu.calvin.cs262.climbinglogapp.Gyms"
+            android:label="@string/gyms_label">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DATA" />
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+        </activity>
+
+        <!-- Friends page -->
+        <activity android:name="edu.calvin.cs262.climbinglogapp.Friends"
+            android:label="@string/friends_label">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DATA" />
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+        </activity>
+
+        <!-- Routes page -->
+        <activity android:name="edu.calvin.cs262.climbinglogapp.Routes"
+            android:label="@string/routes_label">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DATA" />
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+        </activity>
+
         <!-- Log page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
-        android:label="@string/logger_label" >
+            android:label="@string/logger_label" >
 
         </activity>
 

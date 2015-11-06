@@ -13,12 +13,10 @@ public class Profile extends FragmentActivity {
     //onCreate() method
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.profile);
-
+        Button disableProfile = (Button) findViewById(R.id.profile_button);
+        disableProfile.setEnabled(false);
     }
-
-
 
     protected void onPause() {
         super.onPause();
