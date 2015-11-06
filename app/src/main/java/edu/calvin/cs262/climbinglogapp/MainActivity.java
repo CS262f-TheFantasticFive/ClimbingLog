@@ -11,6 +11,7 @@ import android.view.View;
 
 public class MainActivity extends FragmentActivity {
 
+    //onCreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,7 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    //Creating the options menu on the Action Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -25,31 +27,14 @@ public class MainActivity extends FragmentActivity {
         return true;
     }
 
+    //Action Bar method
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_settings:  //Do the same thing if it was the settings button
-                openSettings();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    //Taken from the lab
-
-    //Settings method
-    private void openSettings(){
-        startActivity(new Intent(Settings.ACTION_SETTINGS));
-    }
-
-    /**
-     * This will start up the activity that shows the profile page of a user.
-     */
-    public void startProfile(View view) {
-        Intent profileIntent = new Intent(MainActivity.this, Profile.class);
-        MainActivity.this.startActivity(profileIntent);
     }
 
     /**
@@ -60,30 +45,4 @@ public class MainActivity extends FragmentActivity {
         MainActivity.this.startActivity(logIntent);
     }
 
-    /*
-     * This will start the activity that brings the user to the Friends page
-     */
-
-    public void startFriends(View view) {
-        Intent friendsIntent = new Intent(MainActivity.this, Friends.class);
-        MainActivity.this.startActivity(friendsIntent);
-    }
-
-    /*
-     * This will start the activity that brings the user to the Gyms page
-     */
-
-    public void startGyms(View view) {
-        Intent gymsIntent = new Intent(MainActivity.this, Gyms.class);
-        MainActivity.this.startActivity(gymsIntent);
-    }
-
-    /*
-     * This will start the activity that brings the user to the Routes page
-     */
-
-    public void startRoutes(View view) {
-        Intent routesIntent = new Intent(MainActivity.this, Routes.class);
-        MainActivity.this.startActivity(routesIntent);
-    }
 }
