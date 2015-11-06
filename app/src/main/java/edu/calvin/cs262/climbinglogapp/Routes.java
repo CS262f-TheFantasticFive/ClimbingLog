@@ -2,6 +2,9 @@ package edu.calvin.cs262.climbinglogapp;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Button;
+
+import java.nio.BufferUnderflowException;
 
 /**
  * Created by jbu2 on 11/4/2015.
@@ -13,6 +16,8 @@ public class Routes extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routes);
+        Button disableRoutes = (Button) findViewById(R.id.routes_button);
+        disableRoutes.setEnabled(false);
     }
 
     protected void onPause() {
