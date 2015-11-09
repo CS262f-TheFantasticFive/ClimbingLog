@@ -4,7 +4,7 @@
     <string name="idea_name">Rock Climbing Application</string>
     <string name="team_name">Team F - The Fantastic Five</string>
     <string name="action_help">Help</string>
-    <string name="action_help_content">Press the green plus button to add a new climb log.
+    <string name="action_help_main">Press the green plus button to add a new climb log.
         \n\nUse the Navigation buttons to:
         \n&#8226; See your profile, which has your stats.
         \n&#8226; See climbing gyms.
