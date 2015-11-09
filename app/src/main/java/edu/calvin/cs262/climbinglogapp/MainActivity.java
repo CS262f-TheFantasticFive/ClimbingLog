@@ -1,5 +1,7 @@
 package edu.calvin.cs262.climbinglogapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -37,6 +39,19 @@ public class MainActivity extends FragmentActivity {
             case android.R.id.home:
                 Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);
+                return true;
+            case R.id.action_help:
+                //simple dialog when the help setting is selected
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog.setTitle("Help");
+                alertDialog.setMessage(getString(R.string.action_help_content));
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
