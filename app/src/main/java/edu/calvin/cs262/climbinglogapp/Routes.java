@@ -1,16 +1,13 @@
 package edu.calvin.cs262.climbinglogapp;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.widget.Button;
-
-import java.nio.BufferUnderflowException;
 
 /**
  * Created by jbu2 on 11/4/2015.
  * Routes page
  */
-public class Routes extends FragmentActivity {
+public class Routes extends BaseActivity {
 
     //onCreate() method
     protected void onCreate(Bundle savedInstanceState) {
