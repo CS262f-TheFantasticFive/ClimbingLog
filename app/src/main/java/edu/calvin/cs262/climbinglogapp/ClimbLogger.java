@@ -2,7 +2,6 @@ package edu.calvin.cs262.climbinglogapp;
 
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
@@ -10,11 +9,10 @@ import android.widget.CheckBox;
  * Created by Chris on 11/2/2015.
  * This is the page that the user will see when the click on the big green button.
  */
-public class ClimbLogger extends FragmentActivity {
+public class ClimbLogger extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
-
         final CheckBox route_box = (CheckBox) findViewById(R.id.route_box);
         if (!route_box.isChecked()) {
             route_box.setChecked(true);
@@ -22,6 +20,7 @@ public class ClimbLogger extends FragmentActivity {
         final CheckBox difficulty_box = (CheckBox) findViewById(R.id.difficulty_box);
         final CheckBox color_box = (CheckBox) findViewById(R.id.color_box);
         final CheckBox notes_box = (CheckBox) findViewById(R.id.notes_box);
+
     }
 
     /**
