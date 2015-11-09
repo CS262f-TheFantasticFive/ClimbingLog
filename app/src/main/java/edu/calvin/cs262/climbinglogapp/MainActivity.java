@@ -2,7 +2,6 @@ package edu.calvin.cs262.climbinglogapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +15,8 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //enable the action bar home button
+        getActionBar().setHomeButtonEnabled(true);
 
     }
 
@@ -32,6 +33,11 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            //handle the action bar home button press
+            case android.R.id.home:
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                startActivity(mainIntent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
