@@ -41,7 +41,7 @@ public class BaseActivity extends FragmentActivity {
                 //simple dialog when the help setting is selected
                 AlertDialog alertDialog = new AlertDialog.Builder(BaseActivity.this).create();
                 alertDialog.setTitle(getString(R.string.action_help));
-                alertDialog.setMessage(getString(R.string.action_help_content));
+                alertDialog.setMessage(getString(R.string.team_name));
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
