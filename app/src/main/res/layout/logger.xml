@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        sothree:umanoPanelHeight="68dp"
+        sothree:umanoPanelHeight="0dp"
         sothree:umanoShadowHeight="4dp">
 
         <!-- Main Content -->
@@ -28,35 +28,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- Route Name -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Route Name"
                 android:layout_marginTop="100dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="50dp"
-                android:onClick="slide"/>
+                android:layout_marginLeft="50dp" />
 
-
+            <!-- Difficulty -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Difficulty"
                 android:layout_marginTop="200dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="50dp" />
+                android:layout_marginLeft="50dp"
+                android:onClick="slide" />
 
-
-
+            <!-- Color -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Color"
                 android:layout_marginTop="300dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="50dp" />
+                android:layout_marginLeft="50dp"
+                android:onClick="slide" />
 
-
+            <!-- Notes -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,6 +66,16 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="50dp" />
 
+            <!-- Submit Button -->
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log It!"
+                android:id="@+id/submit_button"
+                android:layout_gravity="center_horizontal|bottom"
+                android:onClick="submit"/>
+
 
         </FrameLayout>
 
@@ -72,7 +83,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:background="#ffffff"
+            android:background="@color/green"
             android:orientation="vertical"
             android:clickable="true"
             android:focusable="false"
