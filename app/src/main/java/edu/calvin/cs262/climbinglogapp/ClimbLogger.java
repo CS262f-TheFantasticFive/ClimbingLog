@@ -36,7 +36,7 @@ public class ClimbLogger extends MainActivity {
                 }
                 else
                     //collapse menu - perhaps this branch isn't needed
-                break;
+                    break;
             case R.id.difficulty_box:
                 if (checked) {
                     //expand some menu
@@ -58,7 +58,7 @@ public class ClimbLogger extends MainActivity {
                 else
                     //collapse menu
                     break;
-            // TODO: "More" box
+                // TODO: "More" box
         }
     }
 
