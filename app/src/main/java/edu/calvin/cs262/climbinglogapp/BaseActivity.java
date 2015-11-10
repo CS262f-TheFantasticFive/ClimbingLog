@@ -18,6 +18,7 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //enable the action bar home button
         getActionBar().setHomeButtonEnabled(true);
+        
     }
     //Creating the options menu on the Action Bar
     @Override
