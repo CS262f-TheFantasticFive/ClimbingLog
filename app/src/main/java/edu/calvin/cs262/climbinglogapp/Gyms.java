@@ -1,6 +1,5 @@
 package edu.calvin.cs262.climbinglogapp;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -8,7 +7,7 @@ import android.widget.Button;
  * Created by jbu2 on 11/4/2015.
  * Gyms page
  */
-public class Gyms extends FragmentActivity {
+public class Gyms extends BaseActivity {
 
     //onCreate() method
     protected void onCreate(Bundle savedInstanceState) {

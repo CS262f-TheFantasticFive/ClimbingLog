@@ -2,37 +2,46 @@ package edu.calvin.cs262.climbinglogapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
 /**
- * Created by cpd5 on 10/12/2015.
- * This is the page that will contain the profile of the user.
+ * Created by Austin on 11/8/2015.
+ * This base activity will be extended by every other class that needs the action bar.
  */
-public class Profile extends BaseActivity {
-
-    //onCreate() method
+public class BaseActivity extends FragmentActivity {
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
-        Button disableProfile = (Button) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
-        disableProfile.setEnabled(false);  //To keep people from creating the Profile activity over and over again
+        //enable the action bar home button
+        getActionBar().setHomeButtonEnabled(true);
+    }
+    //Creating the options menu on the Action Bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-    /**
-     * This method overrides the onOptionsItemSelected method in order to handle action bar things
-     * specific to this page (eg the help dialog).
-     */
+    //Action Bar options method
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            //handle the action bar home button press
+            case android.R.id.home:
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                startActivity(mainIntent);
+                return true;
             case R.id.action_help:
                 //simple dialog when the help setting is selected
-                AlertDialog alertDialog = new AlertDialog.Builder(Profile.this).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(BaseActivity.this).create();
                 alertDialog.setTitle(getString(R.string.action_help));
-                alertDialog.setMessage(getString(R.string.profile_label));
+                alertDialog.setMessage(getString(R.string.team_name));
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -44,9 +53,5 @@ public class Profile extends BaseActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-    //onPause method
-    protected void onPause() {
-        super.onPause();
     }
 }
