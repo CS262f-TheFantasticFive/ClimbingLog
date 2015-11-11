@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Color"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="275dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="50dp"
                 android:onClick="slide" />
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Notes"
-                android:layout_marginTop="400dp"
+                android:layout_marginTop="350dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="50dp" />
 
@@ -75,6 +75,23 @@
                 android:id="@+id/submit_button"
                 android:layout_gravity="center_horizontal|bottom"
                 android:onClick="submit"/>
+
+            <!-- Text field for Route name -->
+            <EditText
+                android:layout_width="272dp"
+                android:layout_height="49dp"
+                android:id="@+id/editText"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="125dp"/>
+
+            <!-- Text field for Notes -->
+            <EditText
+                android:layout_width="287dp"
+                android:layout_height="84dp"
+                android:id="@+id/editText2"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="65dp"
+                android:layout_marginLeft="50dp"/>
 
 
         </FrameLayout>
