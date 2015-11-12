@@ -7,6 +7,8 @@
     <color name="green">#00FF00</color>
     <color name="darkgreen">#248F24</color>
     <color name="orange">#FF9900</color>
+    <color name="lightorange">#F8B70E</color>
     <color name="yellow">#FFFF00</color>
+    <color name="skyblue">#00BFFF</color>
 
 </resources>
