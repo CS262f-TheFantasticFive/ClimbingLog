@@ -2,6 +2,7 @@ package edu.calvin.cs262.climbinglogapp;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by jbu2 on 11/4/2015.
@@ -13,7 +14,7 @@ public class Routes extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routes);
-        Button disableRoutes = (Button) findViewById(R.id.routes_button);  //Disable the corresponding button
+        ImageButton disableRoutes = (ImageButton) findViewById(R.id.routes_button);  //Disable the corresponding button
         disableRoutes.setEnabled(false);  //To keep people from creating the same activity over and over again
     }
 
