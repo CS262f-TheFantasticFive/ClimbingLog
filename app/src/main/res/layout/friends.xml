@@ -29,7 +29,7 @@
         android:layout_marginTop="230dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/hipster_512"/>
-
+<!--
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -45,7 +45,7 @@
         android:id="@+id/textView"
         android:layout_alignTop="@+id/imageView6"
         android:layout_toEndOf="@+id/imageView6"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginLeft="30dp"/> -->
 
     <TextView
         android:layout_width="wrap_content"
