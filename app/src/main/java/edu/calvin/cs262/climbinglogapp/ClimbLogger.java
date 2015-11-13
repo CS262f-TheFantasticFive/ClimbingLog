@@ -24,8 +24,8 @@ public class ClimbLogger extends BaseActivity {
         //set the new sliding layout
         slideLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         //make it so that we can programmatically control the sliding
-        slideLayout.setTouchEnabled(false);
-        slideLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+        slideLayout.setTouchEnabled(true);
+        //slideLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
 
 
 
