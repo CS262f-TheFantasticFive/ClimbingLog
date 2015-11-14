@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by cpd5 on 10/12/2015.
@@ -16,7 +17,7 @@ public class Profile extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
-        Button disableProfile = (Button) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
+        ImageButton disableProfile = (ImageButton) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
         disableProfile.setEnabled(false);  //To keep people from creating the Profile activity over and over again
     }
 
