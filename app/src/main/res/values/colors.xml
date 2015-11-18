@@ -10,5 +10,6 @@
     <color name="lightorange">#F8B70E</color>
     <color name="yellow">#FFFF00</color>
     <color name="skyblue">#00BFFF</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>
