@@ -50,8 +50,4 @@ public class Profile extends BaseActivity {
     protected void onPause() {
         super.onPause();
     }
-
-    protected void onStop() {
-        super.onStop();
-    }
 }
