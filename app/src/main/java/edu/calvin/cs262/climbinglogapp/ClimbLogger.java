@@ -46,5 +46,12 @@ public class ClimbLogger extends BaseActivity {
         ClimbLogger.this.startActivity(mainIntent);
     }
 
+    protected void onStop() {
+        super.onStop();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
 }

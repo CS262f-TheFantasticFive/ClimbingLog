@@ -26,13 +26,11 @@ public class NavBar extends Fragment implements OnClickListener {
         View NavBarView = inflater.inflate(R.layout.navbar_view, container, false);
         //Get the buttons
         ImageButton profile = (ImageButton) NavBarView.findViewById(R.id.profile_button);
-        ImageButton gyms = (ImageButton) NavBarView.findViewById(R.id.gyms_button);
         ImageButton friends = (ImageButton) NavBarView.findViewById(R.id.friends_button);
         ImageButton routes = (ImageButton) NavBarView.findViewById(R.id.routes_button);
 
         //Set on click listeners for each button
         profile.setOnClickListener(this);  //Profile
-        gyms.setOnClickListener(this);   //Gyms
         friends.setOnClickListener(this);   //Friends
         routes.setOnClickListener(this);  //Routes
 
@@ -53,10 +51,6 @@ public class NavBar extends Fragment implements OnClickListener {
             case R.id.profile_button:  //Profile
                 Intent profileIntent = new Intent(getActivity(), Profile.class);
                 startActivity(profileIntent);
-                break;
-            case R.id.gyms_button: //Gyms
-                Intent gymsIntent = new Intent(getActivity(), Gyms.class);
-                startActivity(gymsIntent);
                 break;
             case R.id.friends_button: //Friends
                 Intent friendsIntent = new Intent(getActivity(), Friends.class);
