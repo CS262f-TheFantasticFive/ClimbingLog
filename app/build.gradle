@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "edu.calvin.cs262.climbinglogapp"
-        minSdkVersion 17
+        minSdkVersion 11
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
