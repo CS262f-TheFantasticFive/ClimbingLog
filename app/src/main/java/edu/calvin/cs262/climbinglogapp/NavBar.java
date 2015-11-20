@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by Chris on 11/2/2015.
+ * Edited by Dave and Jacob on 11/12/2015
+ * Added NavBar Icons
  * This is our NavBar! :D
  */
 public class NavBar extends Fragment implements OnClickListener {
@@ -23,10 +25,10 @@ public class NavBar extends Fragment implements OnClickListener {
         //Create the NavBar view
         View NavBarView = inflater.inflate(R.layout.navbar_view, container, false);
         //Get the buttons
-        Button profile = (Button) NavBarView.findViewById(R.id.profile_button);
-        Button gyms = (Button) NavBarView.findViewById(R.id.gyms_button);
-        Button friends = (Button) NavBarView.findViewById(R.id.friends_button);
-        Button routes = (Button) NavBarView.findViewById(R.id.routes_button);
+        ImageButton profile = (ImageButton) NavBarView.findViewById(R.id.profile_button);
+        ImageButton gyms = (ImageButton) NavBarView.findViewById(R.id.gyms_button);
+        ImageButton friends = (ImageButton) NavBarView.findViewById(R.id.friends_button);
+        ImageButton routes = (ImageButton) NavBarView.findViewById(R.id.routes_button);
 
         //Set on click listeners for each button
         profile.setOnClickListener(this);  //Profile
