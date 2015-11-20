@@ -22,12 +22,4 @@ public class Friends extends BaseActivity {
     protected void onPause() {
         super.onPause();
     }
-
-    protected void onStop() {
-        super.onStop();
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }
