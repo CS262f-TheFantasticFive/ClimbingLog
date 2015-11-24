@@ -10,5 +10,11 @@
     <color name="lightorange">#F8B70E</color>
     <color name="yellow">#FFFF00</color>
     <color name="skyblue">#00BFFF</color>
+    <color name="periwinkle">#c6d9f8</color>
+    <color name="sand">#8CA37508</color>
+
+    <color name="cyan">#6098F1</color>
+    <color name="Peach">#F5B064</color>
+    <color name="ivory">#FFFDF8</color>
 
 </resources>

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="CustomTheme" parent="@android:style/Theme.Holo.Light">
+
+    </style>
+
     <!-- the theme applied to the application or activity -->
     <style name="CustomActionBarTheme"
         parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <!-- this says that the action bar style is defined down below in the MyActionBar style -->
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
     </style>
 
     <!-- ActionBar styles -->
-    <style name="MyActionBar"
+    <style name="MyActionBarTheme"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <!-- the background of the action bar -->
-        <item name="android:background">@drawable/mountains</item>
+        <item name="android:background" style="android:scaleType=centerCrop">@drawable/rsz_top_bar_mountain_range</item>
         <!-- this says that the style for the action bar text is defined down below in the MyActionBarTitleText style -->
         <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
     </style>
