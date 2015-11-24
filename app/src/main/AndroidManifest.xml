@@ -3,6 +3,7 @@
     package="edu.calvin.cs262.climbinglogapp" >
 
     <uses-sdk android:minSdkVersion="11"> </uses-sdk>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
