@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b6ada8"
+    android:id="@+id/NavBar">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Navbar Button 1 - Profile -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile_hex_icon"
+            android:id="@+id/profile_button"
+            android:scaleType="centerCrop" />
+
+        <!-- Navbar Button 2 - Gyms -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gym_hex_icon"
+            android:id="@+id/gyms_button"
+            android:scaleType="centerCrop" />
+
+        <!-- Navbar Button 3 - Friends -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/friends_hex_icon"
+            android:id="@+id/friends_button"
+            android:scaleType="centerCrop" />
+
+        <!-- Navbar Button 4 - Routes -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/routes_hex_icon"
+            android:id="@+id/routes_button"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+</RelativeLayout>
