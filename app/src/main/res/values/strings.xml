@@ -31,7 +31,11 @@
     <string name="NB_routes_label">Routes</string>
 
     <!-- Logger for climbs -->
-    <string name="logger_label">My Logs</string>
+    <string name="logger_label">Log A Climb</string>
+    <string name="route_name">"Route Name</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="color">Color</string>
+    <string name="notes">Notes</string>
 
     <!-- Radio buttons -->
     <string name="radio_indoor">Indoor</string>

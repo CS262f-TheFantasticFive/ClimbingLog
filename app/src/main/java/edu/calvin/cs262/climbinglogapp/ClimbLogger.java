@@ -4,12 +4,10 @@ package edu.calvin.cs262.climbinglogapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
-
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,17 +19,18 @@ import java.util.List;
  */
 public class ClimbLogger extends BaseActivity {
 
-    private SlidingUpPanelLayout slideLayout;
-
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    String[] valueArray; //array to be sent to the database
 
-    private String[] difficulties = new String[4];
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
+
+        valueArray = new String[4]; //four values: route name, difficulty, color, and notes
 
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
@@ -44,26 +43,25 @@ public class ClimbLogger extends BaseActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
 
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new OnChildClickListener() {
 
-        //set the new sliding layout
-       // slideLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
-        //make it so that we can programmatically control the sliding
-        //slideLayout.setTouchEnabled(false);
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
 
-        //fill array with difficulties
-        for(int i = 0; i < 3; i++) {
-            difficulties[i] = "5." + i + "+";
-        }
+                //add value to array
+                valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
+                //display the selected value
+                Toast.makeText(getApplicationContext(), valueArray[1], Toast.LENGTH_SHORT).show();
+                //collapse the group after a selection is made
+                expListView.collapseGroup(groupPosition);
+                return false;
+            }
+        });
 
-
-        TextView[] textViewArray = new TextView[4];
-
-        for(int i = 0; i < 3; i++) {
-            textViewArray[i] = new TextView(this);
-            textViewArray[i].setText(difficulties[i]);
-
-        }
     }
+
 
     /*
          * Preparing the list data
@@ -77,65 +75,81 @@ public class ClimbLogger extends BaseActivity {
         listDataHeader.add("Color");
 
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
+        List<String> difficulty = new ArrayList<String>();
+        difficulty.add("5.0");
+        difficulty.add("5.1");
+        difficulty.add("5.2");
+        difficulty.add("5.3");
+        difficulty.add("5.4");
+        difficulty.add("5.5");
+        difficulty.add("5.6");
+        difficulty.add("5.7");
+        difficulty.add("5.8");
+        difficulty.add("5.9");
+        difficulty.add("5.10a");
+        difficulty.add("5.10b");
+        difficulty.add("5.10c");
+        difficulty.add("5.10d");
+        difficulty.add("5.11a");
+        difficulty.add("5.11b");
+        difficulty.add("5.11c");
+        difficulty.add("5.11d");
+        difficulty.add("5.12a");
+        difficulty.add("5.12b");
+        difficulty.add("5.12c");
+        difficulty.add("5.12d");
+        difficulty.add("5.13a");
+        difficulty.add("5.13b");
+        difficulty.add("5.13c");
+        difficulty.add("5.13d");
+        difficulty.add("5.14a");
+        difficulty.add("5.14b");
+        difficulty.add("5.14c");
+        difficulty.add("5.14d");
+        difficulty.add("5.15a");
+        difficulty.add("5.15b");
 
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
+        List<String> color = new ArrayList<String>();
+        color.add("Red");
+        color.add("Orange");
+        color.add("Yellow");
+        color.add("Green");
+        color.add("Neon Green");
+        color.add("Cyan");
+        color.add("Blue");
+        color.add("Turquoise");
+        color.add("Violet");
+        color.add("Pink");
+        color.add("Magenta");
+        color.add("Brown");
+        color.add("White");
+        color.add("Black");
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
+
+        listDataChild.put(listDataHeader.get(0), difficulty); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), color);
     }
 
-    //this method opens the sliding menu when the text is clicked
-    public void slide(View view){
-       // slideLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
-       // slideLayout.setTouchEnabled(true);
+
+    //adding the route name to the array
+    public void addRouteName(View view){
+        EditText routeNameText   = (EditText)findViewById(R.id.routeNameField);
+        valueArray[0] = routeNameText.getText().toString();
+        Toast.makeText(getApplicationContext(), valueArray[0], Toast.LENGTH_SHORT).show();
     }
+    //adding the notes to the array
+    public void addNotes(View view){
+        EditText routeNameText   = (EditText)findViewById(R.id.notesField);
+        valueArray[3] = routeNameText.getText().toString();
+        Toast.makeText(getApplicationContext(), valueArray[3], Toast.LENGTH_SHORT).show();
+    }
+
 
     //this method handles the submit button and sends the app back to the home page
     public void submit(View view) {
         //handle database stuff here
+        //post valueArray
 
         //send the app back to the main activity
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
