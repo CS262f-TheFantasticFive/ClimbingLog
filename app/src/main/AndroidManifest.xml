@@ -85,7 +85,8 @@
 
         <!-- Log page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
-            android:label="@string/logger_label" >
+            android:label="@string/logger_label"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
         </activity>
 

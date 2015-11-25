@@ -51,6 +51,19 @@ public class BaseActivity extends FragmentActivity {
                         });
                 alertDialog.show();
                 return true;
+            case R.id.action_credits:
+                //simple dialog when the help setting is selected
+                AlertDialog creditDialog = new AlertDialog.Builder(BaseActivity.this).create();
+                creditDialog.setTitle(getString(R.string.action_credits));
+                creditDialog.setMessage(getString(R.string.credits));
+                creditDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                creditDialog.show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
