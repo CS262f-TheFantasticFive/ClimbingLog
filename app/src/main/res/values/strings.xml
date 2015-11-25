@@ -10,6 +10,13 @@
         \n&#8226; See climbing gyms.
         \n&#8226; Check out your friends stats.
         \n&#8226; See your recently climbed routes.</string>
+    <string name="action_credits">Credits</string>
+    <string name="credits"><![CDATA[Lead Programmer: <b>Chris Dilley</b>
+        \n\nAndroid Developer and UI Design: Austin Snoeyink
+        \n\nDatabase Administrator and Climbing Consultant: David Michel
+        \n\nDatabase Developer: Javin Unger
+        \n\nGraphic Designer and Testing Coordinator: Jacob Meyer
+        \n\nUI Consultant: Alison Kane]]></string>
 
     <!-- Profile -->
     <string name="stats_label">My Stats</string>
@@ -36,6 +43,12 @@
     <string name="difficulty">Difficulty</string>
     <string name="color">Color</string>
     <string name="notes">Notes</string>
+    <string name="action_help_logger">This is where you can log your climb.
+        \n\n1. First, type in a route name and press enter.
+        \n2. Then, select a difficulty from the drop down menu.
+        \n3. Next, select a color from the drop down menu.
+        \n4. Finally, add any notes about your climb.
+        \n5. Press the Log It button to submit the log.</string>
 
     <!-- Radio buttons -->
     <string name="radio_indoor">Indoor</string>
