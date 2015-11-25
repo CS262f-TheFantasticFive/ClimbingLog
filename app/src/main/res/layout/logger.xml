@@ -14,26 +14,59 @@
         tools:layout="@layout/navbar_view"
         android:id="@+id/fragment2" />
 
-
     <!-- Route Name -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Route Name"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/textView" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/route_name"
+        android:id="@+id/routeName"
+
+        android:layout_alignBaseline="@+id/routeNameField"
+        android:layout_alignBottom="@+id/routeNameField"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:id="@+id/routeNameField"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:onClick="addRouteName"/>
+
+
+    <!-- Difficulty and Color -->
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListView"
+        android:dividerHeight="2dp"
+        android:layout_below="@+id/routeNameField"
+        android:layout_above="@+id/notes" />
 
     <!-- Notes -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notes"
-        android:layout_marginTop="350dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/textView4" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/notes"
+        android:id="@+id/notes"
+        android:layout_above="@+id/notesField"
+        android:layout_alignStart="@+id/expandableListView"
+       />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/notesField"
+        android:layout_above="@+id/submitButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="addNotes"/>
+
 
     <!-- Submit Button -->
     <Button
@@ -41,38 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log It!"
-        android:id="@+id/submit_button"
+        android:id="@+id/submitButton"
         android:layout_gravity="center_horizontal|bottom"
         android:onClick="submit"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-
-    <!-- Text field for Route name -->
-
-    <!-- Text field for Notes -->
-    <EditText
-        android:layout_width="287dp"
-        android:layout_height="84dp"
-        android:id="@+id/editText2"
-        android:layout_gravity="left|bottom"
-        android:layout_marginLeft="50dp"
-        android:layout_above="@+id/submit_button"
-        android:layout_alignStart="@+id/editText" />
-
-    <EditText
-        android:layout_width="272dp"
-        android:layout_height="49dp"
-        android:id="@+id/editText"
-        android:layout_gravity="center"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_centerHorizontal="true" />
-
-    <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_below="@+id/textView" />
-
-
 </RelativeLayout>
