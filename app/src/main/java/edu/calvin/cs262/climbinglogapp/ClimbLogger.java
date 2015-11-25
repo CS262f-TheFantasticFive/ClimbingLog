@@ -1,12 +1,14 @@
 package edu.calvin.cs262.climbinglogapp;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -56,10 +58,30 @@ public class ClimbLogger extends BaseActivity {
                 //add value to array
                 valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                 //display the selected value
-                Toast.makeText(getApplicationContext(), valueArray[1], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
                 //collapse the group after a selection is made
                 expListView.collapseGroup(groupPosition);
                 return false;
+            }
+        });
+
+        EditText routeField  = (EditText)findViewById(R.id.routeNameField);
+        EditText notesField  = (EditText)findViewById(R.id.notesField);
+        routeField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        notesField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
             }
         });
 
@@ -139,13 +161,13 @@ public class ClimbLogger extends BaseActivity {
     public void addRouteName(View view){
         EditText routeNameText   = (EditText)findViewById(R.id.routeNameField);
         valueArray[0] = routeNameText.getText().toString();
-        Toast.makeText(getApplicationContext(), valueArray[0], Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Name added!", Toast.LENGTH_SHORT).show();
     }
     //adding the notes to the array
     public void addNotes(View view){
         EditText routeNameText   = (EditText)findViewById(R.id.notesField);
         valueArray[3] = routeNameText.getText().toString();
-        Toast.makeText(getApplicationContext(), valueArray[3], Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Notes added!", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -157,6 +179,12 @@ public class ClimbLogger extends BaseActivity {
         //send the app back to the main activity
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
         ClimbLogger.this.startActivity(mainIntent);
+    }
+
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**

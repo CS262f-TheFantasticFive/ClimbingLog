@@ -11,12 +11,12 @@
         \n&#8226; Check out your friends stats.
         \n&#8226; See your recently climbed routes.</string>
     <string name="action_credits">Credits</string>
-    <string name="credits"><![CDATA[Lead Programmer: <b>Chris Dilley</b>
+    <string name="credits">Lead Programmer: Chris Dilley
         \n\nAndroid Developer and UI Design: Austin Snoeyink
         \n\nDatabase Administrator and Climbing Consultant: David Michel
         \n\nDatabase Developer: Javin Unger
         \n\nGraphic Designer and Testing Coordinator: Jacob Meyer
-        \n\nUI Consultant: Alison Kane]]></string>
+        \n\nUI Consultant: Alison Kane</string>
 
     <!-- Profile -->
     <string name="stats_label">My Stats</string>

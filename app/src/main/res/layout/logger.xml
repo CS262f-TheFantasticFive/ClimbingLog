@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
     <!-- Navbar Fragment -->
     <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
