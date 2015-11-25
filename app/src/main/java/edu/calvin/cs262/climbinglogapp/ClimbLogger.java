@@ -5,15 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
-
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 
 /**
  * Created by Chris on 11/2/2015.
@@ -21,14 +23,12 @@ import java.util.List;
  */
 public class ClimbLogger extends BaseActivity {
 
-    private SlidingUpPanelLayout slideLayout;
-
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
-    private String[] difficulties = new String[4];
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
@@ -44,26 +44,20 @@ public class ClimbLogger extends BaseActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
 
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new OnChildClickListener() {
 
-        //set the new sliding layout
-       // slideLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
-        //make it so that we can programmatically control the sliding
-        //slideLayout.setTouchEnabled(false);
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Toast.makeText(getApplicationContext(), "Value Added", Toast.LENGTH_SHORT).show();
+                //add value to array
+                return false;
+            }
+        });
 
-        //fill array with difficulties
-        for(int i = 0; i < 3; i++) {
-            difficulties[i] = "5." + i + "+";
-        }
-
-
-        TextView[] textViewArray = new TextView[4];
-
-        for(int i = 0; i < 3; i++) {
-            textViewArray[i] = new TextView(this);
-            textViewArray[i].setText(difficulties[i]);
-
-        }
     }
+
 
     /*
          * Preparing the list data
@@ -125,12 +119,6 @@ public class ClimbLogger extends BaseActivity {
 
         listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
         listDataChild.put(listDataHeader.get(1), nowShowing);
-    }
-
-    //this method opens the sliding menu when the text is clicked
-    public void slide(View view){
-       // slideLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
-       // slideLayout.setTouchEnabled(true);
     }
 
     //this method handles the submit button and sends the app back to the home page
