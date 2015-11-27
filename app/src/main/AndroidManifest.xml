@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.calvin.cs262.climbinglogapp" >
+    package="edu.calvin.cs262.climbinglogapp"  >
 
     <uses-sdk android:minSdkVersion="11"> </uses-sdk>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -8,7 +8,8 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme"
+        android:icon="@drawable/routes_hex_icon">
 
         <!-- Main activity that is seen at start-up -->
         <activity
@@ -85,7 +86,8 @@
 
         <!-- Log page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
-            android:label="@string/logger_label" >
+            android:label="@string/logger_label"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
         </activity>
 
