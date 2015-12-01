@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import java.util.List;
  */
 public class ClimbLogger extends BaseActivity {
 
+    EditText routeField, notesField;
     ExpandableListAdapter listAdapter;
     ExpandableListView listView;
     List<String> listDataHeader;
@@ -33,6 +35,10 @@ public class ClimbLogger extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
+
+        //set the edittexts for later usage
+        routeField  = (EditText)findViewById(R.id.routeNameField);
+        notesField  = (EditText)findViewById(R.id.notesField);
 
         valueArray = new String[5]; //four values: type, route name, difficulty, color, and notes
 
@@ -53,50 +59,37 @@ public class ClimbLogger extends BaseActivity {
                                         int groupPosition, int childPosition, long id) {
 
                 //If the route name is entered
-                if (groupPosition == 0) {
-                    //add value to array
-                    valueArray[0] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
-                    //display the selected value
-                    Toast.makeText(getApplicationContext(), valueArray[0] + " added!", Toast.LENGTH_SHORT).show();
-                    //collapse the group after a selection is made
-                    listView.collapseGroup(groupPosition);
-                } else if (groupPosition == 1) {    //else if the type field is selected
+                if (groupPosition == 0) {    //else if the type field is selected
                     //add value to array
                     valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
                     Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
-                } else if (groupPosition == 2) {    //else if the difficulty field is selected
+                } else if (groupPosition == 1) {    //else if the difficulty field is selected
                     //add value to array
                     valueArray[2] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
                     Toast.makeText(getApplicationContext(), valueArray[2] + " added!", Toast.LENGTH_SHORT).show();
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
-                } else if (groupPosition == 3) {    //else if the color field is selected
+                } else if (groupPosition == 2) {    //else if the color field is selected
                     //add value to array
                     valueArray[3] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
                     Toast.makeText(getApplicationContext(), valueArray[3] + " added!", Toast.LENGTH_SHORT).show();
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
-                } else if (groupPosition == 4) {    //else if notes are entered
-                    //add value to array
-                    valueArray[4] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
-                    //display the selected value
-                    Toast.makeText(getApplicationContext(), valueArray[4] + " added!", Toast.LENGTH_SHORT).show();
-                    //collapse the group after a selection is made
-                    listView.collapseGroup(groupPosition);
+
                 }
                 return false;
             }
         });
 
 
-        //keyboard stuff
-       /* EditText routeField  = (EditText)findViewById(R.id.routeNameField);
-        EditText notesField  = (EditText)findViewById(R.id.notesField);
+        /**
+         * These two methods check for presses outside of the keyboard, and if there are, hide the keyboard
+         */
         routeField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -105,7 +98,6 @@ public class ClimbLogger extends BaseActivity {
                 }
             }
         });
-
         notesField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -113,7 +105,7 @@ public class ClimbLogger extends BaseActivity {
                     hideKeyboard(v);
                 }
             }
-        });*/
+        });
 
     }
 
@@ -127,15 +119,9 @@ public class ClimbLogger extends BaseActivity {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding header data
-        listDataHeader.add("Route Name");
         listDataHeader.add("Type");
         listDataHeader.add("Difficulty");
         listDataHeader.add("Color");
-        listDataHeader.add("Notes");
-
-        // Route name
-        List<String> name = new ArrayList<String>();
-        name.add("We're going to need to figure out how to put an edittext here.");
 
         // The types of climbs
         List<String> type = new ArrayList<String>();
@@ -195,27 +181,31 @@ public class ClimbLogger extends BaseActivity {
         color.add("White");
         color.add("Black");
 
-        // Notes
-        List<String> notes = new ArrayList<String>();
-        notes.add("We're going to need to figure out how to put an edittext here.");
-
-        listDataChild.put(listDataHeader.get(0), name);
-        listDataChild.put(listDataHeader.get(1), type); // Header, Child data
-        listDataChild.put(listDataHeader.get(2), difficulty); // Header, Child data
-        listDataChild.put(listDataHeader.get(3), color); // Header, Child data
-        listDataChild.put(listDataHeader.get(4), notes); // Header, Child data
+        listDataChild.put(listDataHeader.get(0), type); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
+        listDataChild.put(listDataHeader.get(2), color); // Header, Child data
 
     }
 
 
     //this method handles the submit button and sends the app back to the home page
     public void submit(View view) {
+
+        //if the edittexts have something other than the default value or empty, then add them to the array
+        if(!routeField.getText().toString().equals("Route Name") && routeField.getText().toString().trim().length() != 0){
+            valueArray[0] = routeField.getText().toString();
+        }
+        if(!notesField.getText().toString().equals("Notes") && notesField.getText().toString().trim().length() != 0){
+            valueArray[4] = notesField.getText().toString();
+        }
+
         //handle database stuff here
         //post valueArray
 
         //send the app back to the main activity
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
         ClimbLogger.this.startActivity(mainIntent);
+        //some sort of submitted popup
         Toast.makeText(getApplicationContext(), valueArray[0] + valueArray[1]+ valueArray[2] + valueArray[3] + valueArray[4] + " added!", Toast.LENGTH_SHORT).show();
     }
 
