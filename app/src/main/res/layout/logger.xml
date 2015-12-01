@@ -8,7 +8,6 @@
     android:focusableInTouchMode="true">
 
     <!-- Navbar Fragment -->
-
     <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -16,17 +15,38 @@
         tools:layout="@layout/navbar_view"
         android:id="@+id/fragment2" />
 
+    <!-- Route Name -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/routeNameField"
+        android:text="Route Name"
+        android:layout_below="@+id/fragment2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
 
     <!-- The List -->
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/expandableListView"
-        android:layout_below="@+id/fragment2"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@id/fragment2"
-        android:layout_marginTop="98dp" />
+        android:layout_below="@+id/routeNameField"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="15dp"/>
 
+
+    <!-- Notes -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/notesField"
+        android:text="Notes"
+        android:layout_below="@+id/expandableListView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"/>
 
     <!-- Submit Button -->
     <Button
