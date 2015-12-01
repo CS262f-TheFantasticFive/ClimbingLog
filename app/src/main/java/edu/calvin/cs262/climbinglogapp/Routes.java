@@ -52,8 +52,6 @@ public class Routes extends BaseActivity implements View.OnClickListener {
     }
 
     private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs";
-    private static String NEW_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climb";
-
 
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 
@@ -114,30 +112,6 @@ public class Routes extends BaseActivity implements View.OnClickListener {
             b.setClickable(true);
         }
 
-        //Shuttles data to the database
-        //routeName color difficulty types notes
-        public void postData() {
-                HttpClient httpClient = new DefaultHttpClient();
-                HttpPost httpPost = new HttpPost(NEW_CLIMBS_URI);
-
-            try {
-                // Catenate the data
-                String data = "route1" + " blue " + " 5.8+ " + " boulder " + " HATED IT!";
-
-                //Adds the data
-                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
-                nameValuePairs.add(new BasicNameValuePair("climbLine", data));
-                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-                // Execute HTTP Post Request
-                httpClient.execute(httpPost);
-
-            } catch (ClientProtocolException e) {
-                // TODO Auto-generated catch block
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-            }
-        }
     }
 
     //onPause() method
