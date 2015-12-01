@@ -5,15 +5,30 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -201,7 +216,7 @@ public class ClimbLogger extends BaseActivity {
 
         //handle database stuff here
         //post valueArray
-
+        new LongRunningGetIO().execute();
         //send the app back to the main activity
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
         ClimbLogger.this.startActivity(mainIntent);
@@ -240,5 +255,51 @@ public class ClimbLogger extends BaseActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
+
+    private static String NEW_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climb";
+
+
+    private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
+
+        /**
+         * This method issues the HTTP GET request.
+         *
+         * @param params
+         * @return
+         */
+        @Override
+        protected String doInBackground(Void... params) {
+            HttpClient httpClient = new DefaultHttpClient();  //Create the HTTP Client
+            HttpContext localContext = new BasicHttpContext();
+            HttpPost httpPost = new HttpPost(NEW_CLIMBS_URI);  //Create the POST
+
+            try {
+                //0 = name, 1 = type, 2 = difficulty, 3 = color, 4 = notes
+                //routeName color difficulty types notes
+                //Get the data from the user
+                String input = valueArray[0] + ":" + valueArray[3] + ":" + valueArray[2] + ":" + valueArray[1] + ":" + valueArray[4];
+                StringEntity data = new StringEntity(input);  //Create a StringEntity object to hold the input data
+
+                //Set the content type
+                data.setContentType("text/plain");
+
+                //Set the entity of the POST method
+                httpPost.setEntity(data);
+
+                // Execute HTTP Post Request
+                httpClient.execute(httpPost, localContext);
+
+            } catch (ClientProtocolException e) {
+                // TODO Auto-generated catch block
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+            }
+            return "YAY";
+        }
+
+}
+
 
 }
