@@ -45,6 +45,7 @@ public class ClimbLogger extends BaseActivity {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
     String[] valueArray; //array to be sent to the database
+    List<String> difficulty;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +53,8 @@ public class ClimbLogger extends BaseActivity {
         setContentView(R.layout.logger);
 
         //set the edittexts for later usage
-        routeField  = (EditText)findViewById(R.id.routeNameField);
-        notesField  = (EditText)findViewById(R.id.notesField);
+        routeField = (EditText) findViewById(R.id.routeNameField);
+        notesField = (EditText) findViewById(R.id.notesField);
 
         valueArray = new String[5]; //four values: type, route name, difficulty, color, and notes
 
@@ -75,12 +76,19 @@ public class ClimbLogger extends BaseActivity {
 
                 //If the route name is entered
                 if (groupPosition == 0) {    //else if the type field is selected
-                    //add value to array
-                    valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
-                    //display the selected value
-                    Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
-                    //collapse the group after a selection is made
-                    listView.collapseGroup(groupPosition);
+                        //add value to array
+                        valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
+                        //display the selected value
+                        Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
+                        //collapse the group after a selection is made
+                        listView.collapseGroup(groupPosition);
+
+                        if (childPosition == 0) {
+                            addTopRopeDiffData();
+                        } else if (childPosition == 1) {
+                            addBoulderDiffData();
+                        }
+
                 } else if (groupPosition == 1) {    //else if the difficulty field is selected
                     //add value to array
                     valueArray[2] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
@@ -143,41 +151,9 @@ public class ClimbLogger extends BaseActivity {
         type.add("Top Rope");
         type.add("Boulder");
 
+        difficulty = new ArrayList<String>();
         // Adding difficulty data
-        List<String> difficulty = new ArrayList<String>();
-        difficulty.add("5.0");
-        difficulty.add("5.1");
-        difficulty.add("5.2");
-        difficulty.add("5.3");
-        difficulty.add("5.4");
-        difficulty.add("5.5");
-        difficulty.add("5.6");
-        difficulty.add("5.7");
-        difficulty.add("5.8");
-        difficulty.add("5.9");
-        difficulty.add("5.10a");
-        difficulty.add("5.10b");
-        difficulty.add("5.10c");
-        difficulty.add("5.10d");
-        difficulty.add("5.11a");
-        difficulty.add("5.11b");
-        difficulty.add("5.11c");
-        difficulty.add("5.11d");
-        difficulty.add("5.12a");
-        difficulty.add("5.12b");
-        difficulty.add("5.12c");
-        difficulty.add("5.12d");
-        difficulty.add("5.13a");
-        difficulty.add("5.13b");
-        difficulty.add("5.13c");
-        difficulty.add("5.13d");
-        difficulty.add("5.14a");
-        difficulty.add("5.14b");
-        difficulty.add("5.14c");
-        difficulty.add("5.14d");
-        difficulty.add("5.15a");
-        difficulty.add("5.15b");
-
+        difficulty.add(getString(R.string.default_diff));
 
         //adding color data
         List<String> color = new ArrayList<String>();
@@ -202,16 +178,76 @@ public class ClimbLogger extends BaseActivity {
 
     }
 
+    // this gets called if type top rope gets selected
+    public void addTopRopeDiffData() {
+        //clear whatever is in the difficulty list
+        difficulty.clear();
+        //add the new data
+        difficulty.add("5.0");
+        difficulty.add("5.1");
+        difficulty.add("5.2");
+        difficulty.add("5.3");
+        difficulty.add("5.4");
+        difficulty.add("5.5");
+        difficulty.add("5.6");
+        difficulty.add("5.7");
+        difficulty.add("5.8");
+        difficulty.add("5.8+");
+        difficulty.add("5.9");
+        difficulty.add("5.9+");
+        difficulty.add("5.10a");
+        difficulty.add("5.10b");
+        difficulty.add("5.10c");
+        difficulty.add("5.10d");
+        difficulty.add("5.11a");
+        difficulty.add("5.11b");
+        difficulty.add("5.11c");
+        difficulty.add("5.11d");
+        difficulty.add("5.12a");
+        difficulty.add("5.12b");
+        difficulty.add("5.12c");
+        difficulty.add("5.12d");
+        difficulty.add("5.13a");
+        difficulty.add("5.13b");
+        difficulty.add("5.13c");
+        difficulty.add("5.13d");
+        difficulty.add("5.14a");
+        difficulty.add("5.14b");
+        difficulty.add("5.14c");
+        difficulty.add("5.14d");
+        difficulty.add("5.15a");
+        difficulty.add("5.15b");
+
+        listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
+    }
+
+    // this gets called if type boulder gets selected
+    public void addBoulderDiffData() {
+        //clear whatever is in the difficulty list
+        difficulty.clear();
+        //add the new data
+        difficulty.add("V0");
+        difficulty.add("V0+");
+        for(int i = 1; i < 17; i++){
+            difficulty.add("V" + i);
+        }
+
+        listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
+    }
 
     //this method handles the submit button and sends the app back to the home page
     public void submit(View view) {
 
         //if the edittexts have something other than the default value or empty, then add them to the array
-        if(!routeField.getText().toString().equals("Route Name") && routeField.getText().toString().trim().length() != 0){
+        if (!routeField.getText().toString().equals("Route Name") && routeField.getText().toString().trim().length() != 0) {
             valueArray[0] = routeField.getText().toString();
         }
-        if(!notesField.getText().toString().equals("Notes") && notesField.getText().toString().trim().length() != 0){
+        if (!notesField.getText().toString().equals("Notes") && notesField.getText().toString().trim().length() != 0) {
             valueArray[4] = notesField.getText().toString();
+        }
+        // if the default value for difficulty was selected, make it null
+        if (valueArray[2].toString().equals(getString(R.string.default_diff))) {
+            valueArray[2] = null;
         }
 
         //handle database stuff here
@@ -221,12 +257,12 @@ public class ClimbLogger extends BaseActivity {
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
         ClimbLogger.this.startActivity(mainIntent);
         //some sort of submitted popup
-        Toast.makeText(getApplicationContext(), valueArray[0] + valueArray[1]+ valueArray[2] + valueArray[3] + valueArray[4] + " added!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), valueArray[0] + valueArray[1] + valueArray[2] + valueArray[3] + valueArray[4] + " added!", Toast.LENGTH_SHORT).show();
     }
 
 
     public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
@@ -255,7 +291,6 @@ public class ClimbLogger extends BaseActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
 
     private static String NEW_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climb";
@@ -299,7 +334,7 @@ public class ClimbLogger extends BaseActivity {
             return "YAY";
         }
 
-}
+    }
 
 
 }

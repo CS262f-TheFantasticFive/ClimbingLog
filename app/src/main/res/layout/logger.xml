@@ -32,6 +32,7 @@
         android:id="@+id/expandableListView"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/routeNameField"
+
         android:layout_marginBottom="50dp"
         android:layout_marginTop="15dp"/>
 
