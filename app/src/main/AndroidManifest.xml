@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.calvin.cs262.climbinglogapp" >
+    package="edu.calvin.cs262.climbinglogapp"  >
 
     <uses-sdk android:minSdkVersion="11"> </uses-sdk>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -8,12 +8,14 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme"
+        android:icon="@drawable/routes_hex_icon">
 
         <!-- Main activity that is seen at start-up -->
         <activity
             android:name="edu.calvin.cs262.climbinglogapp.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
 
         <!-- Profile page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.Profile"
-            android:label="@string/profile_label" >
+            android:label="@string/profile_label"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -40,7 +44,8 @@
 
         <!-- Gyms page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.Gyms"
-            android:label="@string/gyms_label">
+            android:label="@string/gyms_label"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -55,7 +60,8 @@
 
         <!-- Friends page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.Friends"
-            android:label="@string/friends_label">
+            android:label="@string/friends_label"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -70,7 +76,8 @@
 
         <!-- Routes page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.Routes"
-            android:label="@string/routes_label">
+            android:label="@string/routes_label"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -85,7 +92,9 @@
 
         <!-- Log page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.ClimbLogger"
-            android:label="@string/logger_label" >
+            android:label="@string/logger_label"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
 
         </activity>
 
