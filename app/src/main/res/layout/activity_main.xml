@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/CenterImage"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/alt_gym_hex_icon"
-        android:layout_marginTop="105dp" />
+        android:src="@drawable/OnBelay_logo"
+        android:layout_marginTop="10dp" />
 
     <ImageButton
             android:layout_width="wrap_content"
