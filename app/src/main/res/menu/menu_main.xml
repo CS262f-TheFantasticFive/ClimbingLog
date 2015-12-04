@@ -4,4 +4,9 @@
     <!-- adds the settings hamburger menu to the action bar -->
     <item android:id="@+id/action_help" android:title="@string/action_help"
         android:orderInCategory="100" android:showAsAction="never" />
+
+    <!-- adds the settings hamburger menu to the action bar -->
+    <item android:id="@+id/action_credits" android:title="@string/action_credits"
+        android:orderInCategory="100" android:showAsAction="never" />
+
 </menu>

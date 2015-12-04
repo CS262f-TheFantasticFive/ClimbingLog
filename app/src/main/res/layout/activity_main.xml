@@ -4,30 +4,37 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#ff7c0f">
+    android:background="@color/periwinkle">
 
     <!-- Navbar Fragment -->
-        <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/NavBarHeight"
-            android:layout_marginBottom="350dp"
-            android:layout_alignParentStart="true"
-            android:id="@+id/NavBar"
-            android:layout_alignParentTop="false" />
-
+    <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/NavBarHeight"
+        android:layout_marginBottom="350dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/NavBar"
+        android:layout_alignParentTop="false" />
 
     <!-- Big green button -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CenterImage"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/onbelay_logo"
+        android:layout_marginTop="0dp" />
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="startLog"
             android:background="@drawable/button_selector"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="325dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:id="@+id/imageButton" />
+            android:scaleType="centerCrop"
+            android:id="@+id/imageButton"
+        android:layout_marginRight="90dp" />
 
 </RelativeLayout>

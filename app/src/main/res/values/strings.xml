@@ -10,6 +10,13 @@
         \n&#8226; See climbing gyms.
         \n&#8226; Check out your friends stats.
         \n&#8226; See your recently climbed routes.</string>
+    <string name="action_credits">Credits</string>
+    <string name="credits">Lead Programmer: Chris Dilley
+        \n\nAndroid Developer and UI Design: Austin Snoeyink
+        \n\nDatabase Administrator and Climbing Consultant: David Michel
+        \n\nDatabase Developer: Javin Unger
+        \n\nGraphic Designer and Testing Coordinator: Jacob Meyer
+        \n\nUI Consultant: Alison Kane</string>
 
     <!-- Profile -->
     <string name="stats_label">My Stats</string>
@@ -31,7 +38,20 @@
     <string name="NB_routes_label">Routes</string>
 
     <!-- Logger for climbs -->
-    <string name="logger_label">My Logs</string>
+    <string name="logger_label">Log A Climb</string>
+    <string name="route_name">"Route Name</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="default_diff">Please enter a difficulty first.</string>
+    <string name="color">Color</string>
+    <string name="notes">Notes</string>
+    <string name="action_help_logger">To log a climb, follow these steps.
+        \n\n1. Type in a route name in the "Route Name" section.
+        \n\n2. Select the type of climb from the "Type" drop-down menu.
+        \n\n3. Select the difficulty of the climb from the "Difficulty" drop-down menu.
+        \n\n4. Select the color of the route from the "Color" drop-down menu.
+        \n\n5. Type in any comments about the climb in the "Notes" section.
+        \n\n6. Finally, press the Log It button to submit the log.
+    </string>
 
     <!-- Radio buttons -->
     <string name="radio_indoor">Indoor</string>
