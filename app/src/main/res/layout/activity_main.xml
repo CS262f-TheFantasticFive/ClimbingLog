@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/CenterImage"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/OnBelay_logo"
-        android:layout_marginTop="10dp" />
+        android:src="@drawable/onbelay_logo"
+        android:layout_marginTop="0dp" />
 
     <ImageButton
             android:layout_width="wrap_content"
@@ -33,7 +33,6 @@
             android:layout_marginTop="325dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:id="@+id/imageButton"
         android:layout_marginRight="90dp" />
