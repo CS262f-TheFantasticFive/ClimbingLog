@@ -45,7 +45,7 @@
         android:layout_weight="0.5"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        android:onClick="clickOne"
+        android:onClick="startLog"
         android:background="@null"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
