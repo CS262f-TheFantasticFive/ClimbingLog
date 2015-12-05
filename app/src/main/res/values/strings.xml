@@ -44,7 +44,8 @@
     <string name="default_diff">Please enter a difficulty first.</string>
     <string name="color">Color</string>
     <string name="notes">Notes</string>
-    <string name="action_help_logger">To log a climb, follow these steps.
+    <string name="action_help_logger">You can use this page to log a recent climb.
+        \nTo accomplish this,
         \n\n1. Type in a route name in the "Route Name" section.
         \n\n2. Select the type of climb from the "Type" drop-down menu.
         \n\n3. Select the difficulty of the climb from the "Difficulty" drop-down menu.
