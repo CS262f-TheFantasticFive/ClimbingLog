@@ -14,8 +14,8 @@ public class Friends extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
-        ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
-        disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
+        //ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
+        //disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
     }
 
     //onPause() method
