@@ -19,10 +19,6 @@
             android:id="@+id/profile_button"
             android:scaleType="centerCrop" />
 
-        <!-- Navbar Button 2 - Gyms -->
-
-        <!-- Navbar Button 3 - Friends -->
-
         <!-- Navbar Button 4 - Routes -->
         <ImageButton
             android:layout_width="wrap_content"
