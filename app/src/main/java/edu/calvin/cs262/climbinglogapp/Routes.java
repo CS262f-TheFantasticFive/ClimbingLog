@@ -51,7 +51,7 @@ public class Routes extends BaseActivity implements View.OnClickListener {
         new LongRunningGetIO().execute();
     }
 
-    private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs";
+    private static String CLIMBS_URI = "http://153.106.82.29:9998/climbingserver/climbs";
 
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 

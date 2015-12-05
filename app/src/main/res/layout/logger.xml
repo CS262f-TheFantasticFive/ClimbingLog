@@ -22,7 +22,6 @@
         android:id="@+id/routeNameField"
         android:text="Route Name"
         android:layout_below="@+id/fragment2"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
 
     <!-- The List -->

@@ -14,8 +14,8 @@ public class Gyms extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gyms);
-        ImageButton disableGyms = (ImageButton) findViewById(R.id.gyms_button);  //Disable the corresponding button
-        disableGyms.setEnabled(false);  //To keep people from creating the same activity over and over again
+        //ImageButton disableGyms = (ImageButton) findViewById(R.id.gyms_button);  //Disable the corresponding button
+        //disableGyms.setEnabled(false);  //To keep people from creating the same activity over and over again
     }
 
     //onPause() method
