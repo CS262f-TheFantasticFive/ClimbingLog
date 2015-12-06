@@ -1,16 +1,19 @@
 package edu.calvin.cs262.climbinglogapp;
 
-import java.util.HashMap;
-import java.util.List;
-
+/**
+ * This is an adapter for the expandable list view on the log page.
+ * It feeds the ExpList the group header data and the child data.
+ */
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -54,6 +57,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.lblListItem);
 
         txtListChild.setText(childText);
+
         return convertView;
     }
 
