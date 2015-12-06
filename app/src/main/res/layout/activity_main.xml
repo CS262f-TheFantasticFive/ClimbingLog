@@ -21,10 +21,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/CenterImage"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/OnBelay_logo"
-        android:layout_marginTop="10dp" />
+        android:src="@drawable/onbelay_logo"
+        android:layout_marginTop="0dp" />
 
-    <ImageButton
+    <!--<ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="startLog"
@@ -33,9 +33,22 @@
             android:layout_marginTop="325dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:id="@+id/imageButton"
-        android:layout_marginRight="90dp" />
+        android:layout_marginRight="90dp" />-->
+
+    <ImageButton
+        android:id="@+id/button_one"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+
+        android:layout_weight="0.5"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:onClick="startLog"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/button_selector" />
 
 </RelativeLayout>

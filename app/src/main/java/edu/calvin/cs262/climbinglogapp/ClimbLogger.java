@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -45,7 +47,7 @@ public class ClimbLogger extends BaseActivity {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
     String[] valueArray; //array to be sent to the database
-    List<String> difficulty;
+    List<String> difficulty, type, color;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class ClimbLogger extends BaseActivity {
         //set the edittexts for later usage
         routeField = (EditText) findViewById(R.id.routeNameField);
         notesField = (EditText) findViewById(R.id.notesField);
+        //routeField.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.MULTIPLY);
+
 
         valueArray = new String[5]; //four values: type, route name, difficulty, color, and notes
 
@@ -79,7 +83,7 @@ public class ClimbLogger extends BaseActivity {
                         //add value to array
                         valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                         //display the selected value
-                        Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
                         //collapse the group after a selection is made
                         listView.collapseGroup(groupPosition);
 
@@ -89,21 +93,35 @@ public class ClimbLogger extends BaseActivity {
                             addBoulderDiffData();
                         }
 
+                    listDataHeader.remove(0);
+                    listDataHeader.add(0, "Type" + " - " + valueArray[1]);
+                    listDataChild.put(listDataHeader.get(0), type); // Header, Child data
+
+
                 } else if (groupPosition == 1) {    //else if the difficulty field is selected
                     //add value to array
                     valueArray[2] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
-                    Toast.makeText(getApplicationContext(), valueArray[2] + " added!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), valueArray[2] + " added!", Toast.LENGTH_SHORT).show();
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
+
+                    listDataHeader.remove(1);
+                    listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]);
+                    listDataChild.put(listDataHeader.get(1), type); // Header, Child data
+
+
                 } else if (groupPosition == 2) {    //else if the color field is selected
                     //add value to array
                     valueArray[3] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
-                    Toast.makeText(getApplicationContext(), valueArray[3] + " added!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), valueArray[3] + " added!", Toast.LENGTH_SHORT).show();
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
+                    listDataHeader.remove(2);
+                    listDataHeader.add(2, "Color" + " - " + valueArray[3]);
+                    listDataChild.put(listDataHeader.get(2), type); // Header, Child data
                 }
                 return false;
             }
@@ -147,7 +165,7 @@ public class ClimbLogger extends BaseActivity {
         listDataHeader.add("Color");
 
         // The types of climbs
-        List<String> type = new ArrayList<String>();
+        type = new ArrayList<String>();
         type.add("Top Rope");
         type.add("Boulder");
 
@@ -156,7 +174,7 @@ public class ClimbLogger extends BaseActivity {
         difficulty.add(getString(R.string.default_diff));
 
         //adding color data
-        List<String> color = new ArrayList<String>();
+        color = new ArrayList<String>();
         color.add("Red");
         color.add("Orange");
         color.add("Yellow");
@@ -178,6 +196,8 @@ public class ClimbLogger extends BaseActivity {
 
     }
 
+
+
     // this gets called if type top rope gets selected
     public void addTopRopeDiffData() {
         //clear whatever is in the difficulty list
@@ -195,26 +215,32 @@ public class ClimbLogger extends BaseActivity {
         difficulty.add("5.8+");
         difficulty.add("5.9");
         difficulty.add("5.9+");
+        difficulty.add("5.10");
         difficulty.add("5.10a");
         difficulty.add("5.10b");
         difficulty.add("5.10c");
         difficulty.add("5.10d");
+        difficulty.add("5.11");
         difficulty.add("5.11a");
         difficulty.add("5.11b");
         difficulty.add("5.11c");
         difficulty.add("5.11d");
+        difficulty.add("5.12");
         difficulty.add("5.12a");
         difficulty.add("5.12b");
         difficulty.add("5.12c");
         difficulty.add("5.12d");
+        difficulty.add("5.13");
         difficulty.add("5.13a");
         difficulty.add("5.13b");
         difficulty.add("5.13c");
         difficulty.add("5.13d");
+        difficulty.add("5.14");
         difficulty.add("5.14a");
         difficulty.add("5.14b");
         difficulty.add("5.14c");
         difficulty.add("5.14d");
+        difficulty.add("5.15");
         difficulty.add("5.15a");
         difficulty.add("5.15b");
 
@@ -226,6 +252,8 @@ public class ClimbLogger extends BaseActivity {
         //clear whatever is in the difficulty list
         difficulty.clear();
         //add the new data
+        difficulty.add("VB");
+        difficulty.add("V0-");
         difficulty.add("V0");
         difficulty.add("V0+");
         for(int i = 1; i < 17; i++){

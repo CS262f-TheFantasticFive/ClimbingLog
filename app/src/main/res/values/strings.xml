@@ -7,8 +7,6 @@
     <string name="action_help_main">Press the green plus button to add a new climb log.
         \n\nUse the Navigation buttons to:
         \n&#8226; See your profile, which has your stats.
-        \n&#8226; See climbing gyms.
-        \n&#8226; Check out your friends stats.
         \n&#8226; See your recently climbed routes.</string>
     <string name="action_credits">Credits</string>
     <string name="credits">Lead Programmer: Chris Dilley
@@ -44,7 +42,8 @@
     <string name="default_diff">Please enter a difficulty first.</string>
     <string name="color">Color</string>
     <string name="notes">Notes</string>
-    <string name="action_help_logger">To log a climb, follow these steps.
+    <string name="action_help_logger">You can use this page to log a recent climb.
+        \nTo accomplish this,
         \n\n1. Type in a route name in the "Route Name" section.
         \n\n2. Select the type of climb from the "Type" drop-down menu.
         \n\n3. Select the difficulty of the climb from the "Difficulty" drop-down menu.
