@@ -5,24 +5,18 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -30,7 +24,6 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,13 +34,13 @@ import java.util.List;
  */
 public class ClimbLogger extends BaseActivity {
 
-    EditText routeField, notesField;
-    ExpandableListAdapter listAdapter;
-    ExpandableListView listView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+    EditText routeField, notesField; //routes and notes edittexts
+    ExpandableListAdapter listAdapter; //the adapter
+    ExpandableListView listView; //the ExpListView
+    List<String> listDataHeader; //group headers
+    HashMap<String, List<String>> listDataChild; //the child values of the groups
     String[] valueArray; //array to be sent to the database
-    List<String> difficulty, type, color;
+    List<String> difficulty, type, color; //Lists for the values for the ExpList
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +50,17 @@ public class ClimbLogger extends BaseActivity {
         //set the edittexts for later usage
         routeField = (EditText) findViewById(R.id.routeNameField);
         notesField = (EditText) findViewById(R.id.notesField);
+
         //routeField.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.MULTIPLY);
 
-
-        valueArray = new String[5]; //four values: type, route name, difficulty, color, and notes
+        valueArray = new String[5]; //five values: route name, type, difficulty, color, and notes
 
         // get the listview
         listView = (ExpandableListView) findViewById(R.id.expandableListView);
 
         // preparing list data
         prepareListData();
+
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
         // setting difficulty list adapter
         listView.setAdapter(listAdapter);
@@ -84,18 +78,21 @@ public class ClimbLogger extends BaseActivity {
                         valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                         //display the selected value
                         //Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
+
                         //collapse the group after a selection is made
                         listView.collapseGroup(groupPosition);
 
+                        //display the correct difficulties according to the selected type
                         if (childPosition == 0) {
                             addTopRopeDiffData();
                         } else if (childPosition == 1) {
                             addBoulderDiffData();
                         }
 
-                    listDataHeader.remove(0);
-                    listDataHeader.add(0, "Type" + " - " + valueArray[1]);
-                    listDataChild.put(listDataHeader.get(0), type); // Header, Child data
+                    //this replaces the group header by:
+                    listDataHeader.remove(0); //removing the old header
+                    listDataHeader.add(0, "Type" + " - " + valueArray[1]); //adding the selected data
+                    listDataChild.put(listDataHeader.get(0), type); //putting the new header and child data back into the list
 
 
                 } else if (groupPosition == 1) {    //else if the difficulty field is selected
@@ -103,12 +100,14 @@ public class ClimbLogger extends BaseActivity {
                     valueArray[2] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
                     //Toast.makeText(getApplicationContext(), valueArray[2] + " added!", Toast.LENGTH_SHORT).show();
+
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
-                    listDataHeader.remove(1);
-                    listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]);
-                    listDataChild.put(listDataHeader.get(1), type); // Header, Child data
+                    //this replaces the group header by:
+                    listDataHeader.remove(1);//removing the old header
+                    listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
+                    listDataChild.put(listDataHeader.get(1), type); //putting the new header and child data back into the list
 
 
                 } else if (groupPosition == 2) {    //else if the color field is selected
@@ -116,12 +115,14 @@ public class ClimbLogger extends BaseActivity {
                     valueArray[3] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
                     //display the selected value
                     //Toast.makeText(getApplicationContext(), valueArray[3] + " added!", Toast.LENGTH_SHORT).show();
+
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
-                    listDataHeader.remove(2);
-                    listDataHeader.add(2, "Color" + " - " + valueArray[3]);
-                    listDataChild.put(listDataHeader.get(2), type); // Header, Child data
+                    //this replaces the group header by:
+                    listDataHeader.remove(2); //removing the old header
+                    listDataHeader.add(2, "Color" + " - " + valueArray[3]); //adding the selected data
+                    listDataChild.put(listDataHeader.get(2), type); //putting the new header and child data back into the list
                 }
                 return false;
             }
@@ -170,7 +171,7 @@ public class ClimbLogger extends BaseActivity {
         type.add("Boulder");
 
         difficulty = new ArrayList<String>();
-        // Adding difficulty data
+        // Adding default difficulty data
         difficulty.add(getString(R.string.default_diff));
 
         //adding color data
@@ -190,6 +191,7 @@ public class ClimbLogger extends BaseActivity {
         color.add("White");
         color.add("Black");
 
+        //put all the data into the ExpList
         listDataChild.put(listDataHeader.get(0), type); // Header, Child data
         listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
         listDataChild.put(listDataHeader.get(2), color); // Header, Child data
@@ -278,7 +280,6 @@ public class ClimbLogger extends BaseActivity {
             valueArray[2] = null;
         }
 
-        //handle database stuff here
         //post valueArray
         new LongRunningGetIO().execute();
         //send the app back to the main activity
@@ -289,6 +290,7 @@ public class ClimbLogger extends BaseActivity {
     }
 
 
+    //this hides the keyboard on start
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
