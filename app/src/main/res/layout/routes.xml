@@ -19,5 +19,16 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+<!--
+    <EditText
+        android:id="@+id/get_routes_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:editable="false"
+        android:maxLines="15"
+        android:minLines="15"
+        android:textSize="12sp" />
+-->
 
 </RelativeLayout>
