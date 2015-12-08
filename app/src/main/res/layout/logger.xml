@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/routeNameField"
         android:text="Route Name (Optional)"
+        android:selectAllOnFocus="true"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         />
@@ -39,6 +40,7 @@
         android:ems="10"
         android:id="@+id/notesField"
         android:text="Notes"
+        android:selectAllOnFocus="true"
         android:layout_below="@+id/expandableListView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"/>
