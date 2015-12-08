@@ -110,7 +110,7 @@ public class ClimbLogger extends BaseActivity {
                     //this replaces the group header by:
                     listDataHeader.remove(1);//removing the old header
                     listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
-                    listDataChild.put(listDataHeader.get(1), type); //putting the new header and child data back into the list
+                    listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
 
 
                 } else if (groupPosition == 2) {    //else if the color field is selected
@@ -124,7 +124,7 @@ public class ClimbLogger extends BaseActivity {
                     //this replaces the group header by:
                     listDataHeader.remove(2); //removing the old header
                     listDataHeader.add(2, "Color" + " - " + valueArray[3]); //adding the selected data
-                    listDataChild.put(listDataHeader.get(2), type); //putting the new header and child data back into the list
+                    listDataChild.put(listDataHeader.get(2), color); //putting the new header and child data back into the list
                 }
                 return false;
             }

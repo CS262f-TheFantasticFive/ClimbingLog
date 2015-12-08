@@ -26,8 +26,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +38,12 @@ import java.util.List;
  * Routes page
  */
 public class Routes extends BaseActivity implements View.OnClickListener {
+    String[] myData;
 
     ListView routesList;
     String[] values;
     ArrayAdapter<String> adapter;
+
     //onCreate() method
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +56,9 @@ public class Routes extends BaseActivity implements View.OnClickListener {
         //get the data
         new LongRunningGetIO().execute();
 
-        values = new String[] {"hi", "bye", "i ran out of things to say", "hi chris"};
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        routesList.setAdapter(adapter);
+     //   values = new String[] {"hi", "bye", "i ran out of things to say", "hi chris"};
+      //  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+      //  routesList.setAdapter(adapter);
 
 
 
@@ -62,14 +66,15 @@ public class Routes extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View arg0) {
-       // Button b = (Button) findViewById(R.id.get_routes_button);
-       // b.setClickable(false);
+        // Button b = (Button) findViewById(R.id.get_routes_button);
+        // b.setClickable(false);
         //new LongRunningGetIO().execute();
     }
 
     private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs";
 
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
+        String result;
 
         /**
          * This method extracts text from the HTTP response entity.
@@ -80,17 +85,25 @@ public class Routes extends BaseActivity implements View.OnClickListener {
          * @throws IOException
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
-            InputStream in = entity.getContent();
-            StringBuffer out = new StringBuffer();
-            int n = 1;
-            while (n > 0) {
-                byte[] b = new byte[4096];
-                n = in.read(b);
-                if (n > 0) out.append(new String(b, 0, n));
-            }
+               InputStream in = entity.getContent();
+               StringBuffer out = new StringBuffer();
+               int n = 1;
+              while (n > 0) {
+                  byte[] b = new byte[4096];
+                  n = in.read(b);
+                  if (n > 0) out.append(new String(b, 0, n));
+              }
+         /**   BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
+            StringBuilder total = new StringBuilder();
+            String[] data = new String[400];
+            String holder = "";
+            int i = 0;
+            while((holder = reader.readLine()) != null) {
+                myData[i] = holder;
+                i++;
+            } */
             return out.toString();
         }
-
 
         /**
          * This method issues the HTTP GET request.
@@ -121,15 +134,10 @@ public class Routes extends BaseActivity implements View.OnClickListener {
          */
         protected void onPostExecute(String results) {
             if (results != null) {
-
-
-                //values[0] = "hi";
-                //values[1] = "hi again";
-
-
-
-                //EditText et = (EditText) findViewById(R.id.get_routes_text);
-               // et.setText(results);
+                result = results;
+                String[] data = result.split(";");
+                adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                routesList.setAdapter(adapter);
             }
         }
 
