@@ -1,6 +1,7 @@
 package edu.calvin.cs262.climbinglogapp;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -35,20 +37,34 @@ import java.util.List;
  */
 public class Routes extends BaseActivity implements View.OnClickListener {
 
+    ListView routesList;
+    String[] values;
+    ArrayAdapter<String> adapter;
     //onCreate() method
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routes);
         ImageButton disableRoutes = (ImageButton) findViewById(R.id.routes_button);  //Disable the corresponding button
         disableRoutes.setEnabled(false);  //To keep people from creating the same activity over and over again
-        findViewById(R.id.get_routes_button).setOnClickListener(this);
+
+        routesList = (ListView) findViewById(R.id.routesListView);
+
+        //get the data
+        new LongRunningGetIO().execute();
+
+        values = new String[] {"hi", "bye", "i ran out of things to say", "hi chris"};
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        routesList.setAdapter(adapter);
+
+
+
     }
 
     @Override
     public void onClick(View arg0) {
-        Button b = (Button) findViewById(R.id.get_routes_button);
-        b.setClickable(false);
-        new LongRunningGetIO().execute();
+       // Button b = (Button) findViewById(R.id.get_routes_button);
+       // b.setClickable(false);
+        //new LongRunningGetIO().execute();
     }
 
     private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs";
@@ -105,11 +121,16 @@ public class Routes extends BaseActivity implements View.OnClickListener {
          */
         protected void onPostExecute(String results) {
             if (results != null) {
-                EditText et = (EditText) findViewById(R.id.get_routes_text);
-                et.setText(results);
+
+
+                //values[0] = "hi";
+                //values[1] = "hi again";
+
+
+
+                //EditText et = (EditText) findViewById(R.id.get_routes_text);
+               // et.setText(results);
             }
-            Button b = (Button) findViewById(R.id.get_routes_button);
-            b.setClickable(true);
         }
 
     }

@@ -20,9 +20,6 @@
     <string name="stats_label">My Stats</string>
     <string name="profile_label">My Profile</string>
 
-    <!-- Gyms -->
-    <string name="gyms_label">My Gyms</string>
-
     <!-- Routes -->
     <string name="routes_label">My Routes</string>
 
@@ -31,7 +28,6 @@
 
     <!-- Navbar -->
     <string name="NB_profile_label">Profile</string>
-    <string name="NB_gyms_label">Gyms</string>
     <string name="NB_friends_label">Friends</string>
     <string name="NB_routes_label">Routes</string>
 
@@ -49,7 +45,7 @@
         \n\n3. Select the difficulty of the climb from the "Difficulty" drop-down menu.
         \n\n4. Select the color of the route from the "Color" drop-down menu.
         \n\n5. Type in any comments about the climb in the "Notes" section.
-        \n\n6. Finally, press the Log It button to submit the log.
+        \n\n6. Finally, press the "Log It" button to submit the log.
     </string>
 
     <!-- Radio buttons -->
