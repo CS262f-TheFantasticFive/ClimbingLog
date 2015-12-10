@@ -107,10 +107,12 @@ public class ClimbLogger extends BaseActivity {
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
-                    //this replaces the group header by:
-                    listDataHeader.remove(1);//removing the old header
-                    listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
-                    listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
+                    if(!(valueArray[2].equals("Please enter a difficulty first."))) {
+                        //this replaces the group header by:
+                        listDataHeader.remove(1);//removing the old header
+                        listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
+                        listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
+                    }
 
 
                 } else if (groupPosition == 2) {    //else if the color field is selected
@@ -218,26 +220,32 @@ public class ClimbLogger extends BaseActivity {
         difficulty.add("5.8+");
         difficulty.add("5.9");
         difficulty.add("5.9+");
+        difficulty.add("5.10");
         difficulty.add("5.10a");
         difficulty.add("5.10b");
         difficulty.add("5.10c");
         difficulty.add("5.10d");
+        difficulty.add("5.11");
         difficulty.add("5.11a");
         difficulty.add("5.11b");
         difficulty.add("5.11c");
         difficulty.add("5.11d");
+        difficulty.add("5.12");
         difficulty.add("5.12a");
         difficulty.add("5.12b");
         difficulty.add("5.12c");
         difficulty.add("5.12d");
+        difficulty.add("5.13");
         difficulty.add("5.13a");
         difficulty.add("5.13b");
         difficulty.add("5.13c");
         difficulty.add("5.13d");
+        difficulty.add("5.14");
         difficulty.add("5.14a");
         difficulty.add("5.14b");
         difficulty.add("5.14c");
         difficulty.add("5.14d");
+        difficulty.add("5.15");
         difficulty.add("5.15a");
         difficulty.add("5.15b");
 
@@ -249,6 +257,8 @@ public class ClimbLogger extends BaseActivity {
         //clear whatever is in the difficulty list
         difficulty.clear();
         //add the new data
+        difficulty.add("VB");
+        difficulty.add("V0-");
         difficulty.add("V0");
         difficulty.add("V0+");
         for(int i = 1; i < 17; i++){
