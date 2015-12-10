@@ -9,28 +9,50 @@
     <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/NavBarHeight"
-        android:layout_marginBottom="350dp"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView" />
 
-    <!-- Text field -->
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:id="@+id/editText3"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="50dp"
-        android:text="This will have the bio for the climber, as well as a profile picture."/>
+    <!-- Bio display -->
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:id="@+id/bio_display"
+        android:text="Hey there! I'm an advid climber, and I love pie!"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageView"
+        android:background="@android:color/transparent"/>
+
+    <!-- Routes display -->
+    <ListView
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:id="@+id/routes_profile_display"
+        android:text="Climbs go here!"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"/>
+
+    <!-- Username display -->
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="@string/user_name"
+        android:layout_above="@+id/imageView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="75dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView" />
 
     <!-- Makeshift profile picture -->
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/imageView"
-        android:layout_marginLeft="25dp"
-        android:background="@drawable/generic_profile"
-        android:layout_alignBottom="@+id/editText3"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="175dp"
-        />
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/gir"
+        android:layout_alignTop="@+id/routes_profile_display"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
