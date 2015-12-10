@@ -43,22 +43,6 @@
 
         </activity>
 
-        <!-- Gyms page -->
-        <activity android:name="edu.calvin.cs262.climbinglogapp.Gyms"
-            android:label="@string/gyms_label"
-            android:screenOrientation="portrait">
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.DATA" />
-                <action android:name="android.intent.action.PICK" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-            </intent-filter>
-
-        </activity>
-
         <!-- Friends page -->
         <activity android:name="edu.calvin.cs262.climbinglogapp.Friends"
             android:label="@string/friends_label"
