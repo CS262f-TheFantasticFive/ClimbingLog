@@ -21,7 +21,7 @@
         android:layout_height="150dp"
         android:id="@+id/imageView"
         android:layout_marginLeft="15dp"
-        android:background="@drawable/profile_pic"
+        android:background="@drawable/generic_profile"
         android:layout_alignTop="@+id/NavBar"
         android:layout_alignBottom="@+id/profileListView"
         android:layout_alignParentStart="true"
