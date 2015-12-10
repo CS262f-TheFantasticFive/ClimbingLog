@@ -37,7 +37,6 @@
         android:layout_marginBottom="25dp"
         android:background="@android:color/transparent"/>
 
-<<<<<<< HEAD
     <!-- Username display -->
     <TextView
         android:layout_width="100dp"
