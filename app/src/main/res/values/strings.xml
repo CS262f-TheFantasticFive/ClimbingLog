@@ -6,8 +6,9 @@
     <string name="action_help">Help</string>
     <string name="action_help_main">Press the green plus button to add a new climb log.
         \n\nUse the Navigation buttons to:
-        \n&#8226; See your profile, which has your stats.
-        \n&#8226; See your recently climbed routes.</string>
+        \n&#8226; See your profile, which contains information about you and recently logged activity.
+        \n&#8226; See your friends.
+        \n&#8226; See all of your logged climbs.</string>
     <string name="action_credits">Credits</string>
     <string name="credits">Lead Programmer: Chris Dilley
         \n\nAndroid Developer and UI Design: Austin Snoeyink
@@ -41,12 +42,12 @@
     <string name="notes">Notes</string>
     <string name="action_help_logger">You can use this page to log a recent climb.
         \nTo accomplish this,
-        \n\n1. Type in a route name in the "Route Name" section.
-        \n\n2. Select the type of climb from the "Type" drop-down menu.
-        \n\n3. Select the difficulty of the climb from the "Difficulty" drop-down menu.
-        \n\n4. Select the color of the route from the "Color" drop-down menu.
-        \n\n5. Type in any comments about the climb in the "Notes" section.
-        \n\n6. Finally, press the "Log It" button to submit the log.
+        \n\n1. In the "Route Name" section, enter a route name. This section is optional.
+        \n\n2. From the "Type" drop-down menu, select the type of your climb.
+        \n\n3. From the "Difficulty" drop-down menu, select the difficulty of the climb.
+        \n\n4. From the "Color" drop-down menu, select the color of the route.
+        \n\n5. In the "Notes" section, enter any additional comments or notes you have about the climb. This section is optional.
+        \n\n6. Press the "Log It" button to submit the log.
     </string>
 
     <!-- Radio buttons -->

@@ -27,8 +27,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by cpd5 on 10/12/2015.
- * This is the page that will contain the profile of the user.
+ * Created by cpd67, Fall 2015
+ * This is the page that will contain the profile of the user and will display a short blurb about
+ * the user in addition the recent activity (the user's climbs)
  */
 public class Profile extends BaseActivity {
 
@@ -107,7 +108,7 @@ public class Profile extends BaseActivity {
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
             InputStream in = entity.getContent();
-            StringBuffer out = new StringBuffer();
+            StringBuilder out = new StringBuilder();
             int n = 1;
             while (n > 0) {
                 byte[] b = new byte[4096];
@@ -128,7 +129,7 @@ public class Profile extends BaseActivity {
             HttpClient httpClient = new DefaultHttpClient();
             HttpContext localContext = new BasicHttpContext();
             HttpGet httpGet = new HttpGet(PROFILE_CLIMBS_URI);
-            String text = null;
+            String text;
             try {
                 HttpResponse response = httpClient.execute(httpGet, localContext);
                 HttpEntity entity = response.getEntity();
@@ -148,7 +149,7 @@ public class Profile extends BaseActivity {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
                 profile_routes_List.setAdapter(adapter);
             }
         }

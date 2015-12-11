@@ -34,8 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jbu2 on 11/4/2015.
- * Routes page
+ * Created by jbu2, Fall 2015
+ * Displays the user's climbing activity - all logged climbs
  */
 public class Routes extends BaseActivity implements View.OnClickListener {
     String[] myData;
@@ -86,7 +86,7 @@ public class Routes extends BaseActivity implements View.OnClickListener {
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
                InputStream in = entity.getContent();
-               StringBuffer out = new StringBuffer();
+               StringBuilder out = new StringBuilder();
                int n = 1;
               while (n > 0) {
                   byte[] b = new byte[4096];
@@ -116,7 +116,7 @@ public class Routes extends BaseActivity implements View.OnClickListener {
             HttpClient httpClient = new DefaultHttpClient();
             HttpContext localContext = new BasicHttpContext();
             HttpGet httpGet = new HttpGet(CLIMBS_URI);
-            String text = null;
+            String text;
             try {
                 HttpResponse response = httpClient.execute(httpGet, localContext);
                 HttpEntity entity = response.getEntity();
@@ -136,7 +136,7 @@ public class Routes extends BaseActivity implements View.OnClickListener {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
                 routesList.setAdapter(adapter);
             }
         }

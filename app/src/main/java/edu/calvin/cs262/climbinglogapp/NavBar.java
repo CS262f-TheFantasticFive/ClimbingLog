@@ -10,10 +10,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 /**
- * Created by Chris on 11/2/2015.
- * Edited by Dave and Jacob on 11/12/2015
- * Added NavBar Icons
- * This is our NavBar! :D
+ * Created by cpd67, Fall 2015
+ * Modified by davejoshmike and jam57, Fall 2015
  */
 public class NavBar extends Fragment implements OnClickListener {
 
