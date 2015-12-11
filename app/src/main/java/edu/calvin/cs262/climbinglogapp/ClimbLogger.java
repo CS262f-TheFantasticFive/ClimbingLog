@@ -36,7 +36,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by cpd67, Fall 2015
+ * @author abs25
+ * @author cpd5
  * This is the page that the user will see when the click on the big green button, and allow them
  * to create and submit a climb to the database.
  */
@@ -300,8 +301,8 @@ public class ClimbLogger extends BaseActivity {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    /*
-    @Override
+
+  /*  @Override
     public void onPause() {
         super.onPause();
         AlertDialog.Builder leaveDialogBuilder = new AlertDialog.Builder(ClimbLogger.this);
@@ -320,7 +321,7 @@ public class ClimbLogger extends BaseActivity {
         AlertDialog leaveDialog = leaveDialogBuilder.create();
         leaveDialog.show();
     }
-    */
+*/
 
     /**
      * This method overrides the onOptionsItemSelected method in order to handle action bar things

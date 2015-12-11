@@ -32,8 +32,8 @@ public class Friends extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
-        //ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
-        //disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
+        ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
+        disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
         friendsList = (ListView) findViewById(R.id.friends_view);
 
         //get the data
@@ -106,7 +106,7 @@ public class Friends extends BaseActivity {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_list_item_1, android.R.id.text1, data);
                 friendsList.setAdapter(adapter);
             }
         }
