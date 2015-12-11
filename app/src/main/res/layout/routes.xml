@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/routesListView"
         android:layout_marginTop="100dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>

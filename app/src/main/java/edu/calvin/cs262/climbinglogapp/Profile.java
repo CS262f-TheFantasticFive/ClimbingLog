@@ -93,7 +93,7 @@ public class Profile extends BaseActivity {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private static String PROFILE_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/recent";
+    private static String PROFILE_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/recent/0";
 
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
         String result;
@@ -149,7 +149,7 @@ public class Profile extends BaseActivity {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_list_item_1, android.R.id.text1, data);
                 profile_routes_List.setAdapter(adapter);
             }
         }
