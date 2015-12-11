@@ -19,7 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by jbu2 on 11/4/2015.
+ * Created by javinunger, Fall 2015
+ * Modified by cpd67, Fall 2015
  * Friends page
  */
 public class Friends extends BaseActivity {
@@ -85,7 +86,7 @@ public class Friends extends BaseActivity {
             HttpClient httpClient = new DefaultHttpClient();
             HttpContext localContext = new BasicHttpContext();
             HttpGet httpGet = new HttpGet(FRIENDS_URI);
-            String text = null;
+            String text;
             try {
                 HttpResponse response = httpClient.execute(httpGet, localContext);
                 HttpEntity entity = response.getEntity();
@@ -105,7 +106,7 @@ public class Friends extends BaseActivity {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
                 friendsList.setAdapter(adapter);
             }
         }

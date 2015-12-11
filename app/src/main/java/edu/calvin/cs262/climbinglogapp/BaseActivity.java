@@ -12,7 +12,7 @@ import android.view.ViewConfiguration;
 import java.lang.reflect.Field;
 
 /**
- * Created by Austin on 11/8/2015.
+ * Created by asb25, Fall 2015
  * This base activity will be extended by every other class that needs the action bar.
  */
 public class BaseActivity extends FragmentActivity {
