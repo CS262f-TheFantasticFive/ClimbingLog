@@ -14,11 +14,11 @@
         <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
     </style>
 
-  <!--  <style name="MyOverflow"
+    <style name="MyOverflow"
         parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_action_search</item>
+        <item name="android:src">@drawable/questionmark_small</item>
 
-    </style>-->
+    </style>
 
 
     <!-- ActionBar TitleText -->

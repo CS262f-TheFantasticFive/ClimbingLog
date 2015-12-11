@@ -10,7 +10,7 @@
         <!-- this says that the action bar style is defined down below in the MyActionBar style -->
         <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
         <item name="android:windowBackground">@color/periwinkle</item>
-        <!--<item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>-->
+        <item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>
     </style>
 
 </resources>
