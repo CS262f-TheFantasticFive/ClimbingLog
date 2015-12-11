@@ -6,9 +6,6 @@
     android:orientation="vertical">
 
     <!-- Navbar Fragment -->
-
-    <!-- Text field -->
-
     <fragment android:name="edu.calvin.cs262.climbinglogapp.NavBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/NavBarHeight"
@@ -21,7 +18,7 @@
         android:layout_width="200dp"
         android:layout_height="250dp"
         android:id="@+id/bio_display"
-        android:text="Hey there! I'm an advid climber, and I love pie!"
+        android:text="Hey there! I'm an avid climber, and I love pie!"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imageView"
         android:background="@android:color/transparent"/>
@@ -57,4 +54,5 @@
         android:background="@drawable/gir"
         android:layout_alignTop="@+id/routes_profile_display"
         android:layout_alignParentStart="true" />
+
 </RelativeLayout>
