@@ -36,8 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Chris on 11/2/2015.
- * This is the page that the user will see when the click on the big green button.
+ * Created by cpd67, Fall 2015
+ * This is the page that the user will see when the click on the big green button, and allow them
+ * to create and submit a climb to the database.
  */
 public class ClimbLogger extends BaseActivity {
 
@@ -107,10 +108,12 @@ public class ClimbLogger extends BaseActivity {
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
-                    //this replaces the group header by:
-                    listDataHeader.remove(1);//removing the old header
-                    listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
-                    listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
+                    if(!(valueArray[2].equals("Please enter a difficulty first."))) {
+                        //this replaces the group header by:
+                        listDataHeader.remove(1);//removing the old header
+                        listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
+                        listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
+                    }
 
 
                 } else if (groupPosition == 2) {    //else if the color field is selected
@@ -159,8 +162,8 @@ public class ClimbLogger extends BaseActivity {
      */
 
     private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+        listDataHeader = new ArrayList<>();
+        listDataChild = new HashMap<>();
 
         // Adding header data
         listDataHeader.add("Type");
@@ -168,16 +171,16 @@ public class ClimbLogger extends BaseActivity {
         listDataHeader.add("Color");
 
         // The types of climbs
-        type = new ArrayList<String>();
+        type = new ArrayList<>();
         type.add("Top Rope");
         type.add("Boulder");
 
-        difficulty = new ArrayList<String>();
+        difficulty = new ArrayList<>();
         // Adding difficulty data
         difficulty.add(getString(R.string.default_diff));
 
         //adding color data
-        color = new ArrayList<String>();
+        color = new ArrayList<>();
         color.add("Red");
         color.add("Orange");
         color.add("Yellow");
@@ -218,26 +221,32 @@ public class ClimbLogger extends BaseActivity {
         difficulty.add("5.8+");
         difficulty.add("5.9");
         difficulty.add("5.9+");
+        difficulty.add("5.10");
         difficulty.add("5.10a");
         difficulty.add("5.10b");
         difficulty.add("5.10c");
         difficulty.add("5.10d");
+        difficulty.add("5.11");
         difficulty.add("5.11a");
         difficulty.add("5.11b");
         difficulty.add("5.11c");
         difficulty.add("5.11d");
+        difficulty.add("5.12");
         difficulty.add("5.12a");
         difficulty.add("5.12b");
         difficulty.add("5.12c");
         difficulty.add("5.12d");
+        difficulty.add("5.13");
         difficulty.add("5.13a");
         difficulty.add("5.13b");
         difficulty.add("5.13c");
         difficulty.add("5.13d");
+        difficulty.add("5.14");
         difficulty.add("5.14a");
         difficulty.add("5.14b");
         difficulty.add("5.14c");
         difficulty.add("5.14d");
+        difficulty.add("5.15");
         difficulty.add("5.15a");
         difficulty.add("5.15b");
 
@@ -249,6 +258,8 @@ public class ClimbLogger extends BaseActivity {
         //clear whatever is in the difficulty list
         difficulty.clear();
         //add the new data
+        difficulty.add("VB");
+        difficulty.add("V0-");
         difficulty.add("V0");
         difficulty.add("V0+");
         for(int i = 1; i < 17; i++){
@@ -261,7 +272,7 @@ public class ClimbLogger extends BaseActivity {
     //this method handles the submit button and sends the app back to the home page
     public void submit(View view) {
 
-        //if the edittexts have something other than the default value or empty, then add them to the array
+        //if the edittexts have something other than the default value or empty, then add them to the valueArray
         if (!routeField.getText().toString().equals("Route Name") && routeField.getText().toString().trim().length() != 0) {
             valueArray[0] = routeField.getText().toString();
         }
@@ -269,18 +280,18 @@ public class ClimbLogger extends BaseActivity {
             valueArray[4] = notesField.getText().toString();
         }
         // if the default value for difficulty was selected, make it null
-        if (valueArray[2].toString().equals(getString(R.string.default_diff))) {
+        if (valueArray[2].equals(getString(R.string.default_diff))) {
             valueArray[2] = null;
         }
 
-        //handle database stuff here
-        //post valueArray
+        //Posting valueArray to the database
         new LongRunningGetIO().execute();
-        //send the app back to the main activity
+        //Sending the app back to the main activity
         Intent mainIntent = new Intent(ClimbLogger.this, MainActivity.class);
         ClimbLogger.this.startActivity(mainIntent);
-        //some sort of submitted popup
-        Toast.makeText(getApplicationContext(), valueArray[0] + valueArray[1] + valueArray[2] + valueArray[3] + valueArray[4] + " added!", Toast.LENGTH_SHORT).show();
+
+        //After the climb is submitted, informational pop-up appears that confirms a successful submission
+        Toast.makeText(getApplicationContext(), valueArray[0] + " - " + valueArray[3] + " " + valueArray[2] + " " + valueArray[1] + " climb added!", Toast.LENGTH_LONG).show();
     }
 
 

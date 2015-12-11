@@ -10,10 +10,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 /**
- * Created by Chris on 11/2/2015.
- * Edited by Dave and Jacob on 11/12/2015
- * Added NavBar Icons
- * This is our NavBar! :D
+ * Created by cpd67, Fall 2015
+ * Modified by davejoshmike and jam57, Fall 2015
  */
 public class NavBar extends Fragment implements OnClickListener {
 
@@ -26,12 +24,12 @@ public class NavBar extends Fragment implements OnClickListener {
         View NavBarView = inflater.inflate(R.layout.navbar_view, container, false);
         //Get the buttons
         ImageButton profile = (ImageButton) NavBarView.findViewById(R.id.profile_button);
-       // ImageButton friends = (ImageButton) NavBarView.findViewById(R.id.friends_button);
+        ImageButton friends = (ImageButton) NavBarView.findViewById(R.id.friends_button);
         ImageButton routes = (ImageButton) NavBarView.findViewById(R.id.routes_button);
 
         //Set on click listeners for each button
         profile.setOnClickListener(this);  //Profile
-       //friends.setOnClickListener(this);   //Friends
+        friends.setOnClickListener(this);   //Friends
         routes.setOnClickListener(this);  //Routes
 
         return NavBarView;
@@ -52,10 +50,10 @@ public class NavBar extends Fragment implements OnClickListener {
                 Intent profileIntent = new Intent(getActivity(), Profile.class);
                 startActivity(profileIntent);
                 break;
-         //  case R.id.friends_button: //Friends
-         //       Intent friendsIntent = new Intent(getActivity(), Friends.class);
-         //       startActivity(friendsIntent);
-         //       break;
+           case R.id.friends_button: //Friends
+                Intent friendsIntent = new Intent(getActivity(), Friends.class);
+                startActivity(friendsIntent);
+                break;
             case R.id.routes_button: //Routes
                 Intent routesIntent = new Intent(getActivity(), Routes.class);
                 startActivity(routesIntent);
