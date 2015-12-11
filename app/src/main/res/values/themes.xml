@@ -10,23 +10,7 @@
         <!-- this says that the action bar style is defined down below in the MyActionBar style -->
         <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
         <item name="android:windowBackground">@color/periwinkle</item>
+        <!--<item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>-->
     </style>
 
-    <!-- ActionBar styles -->
-    <style name="MyActionBarTheme"
-        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <!-- the background of the action bar -->
-        <item name="android:background" style="android:scaleType=centerCrop">@drawable/rsz_top_bar_mountain_range</item>
-        <!-- this says that the style for the action bar text is defined down below in the MyActionBarTitleText style -->
-        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
-    </style>
-
-    <!-- ActionBar TitleText -->
-    <style name="MyActionBarTitleText"
-        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <!-- Color of text -->
-        <item name="android:textColor">#FFFFFF</item>
-        <!-- make the text bold -->
-        <item name="android:textStyle">bold</item>
-    </style>
 </resources>

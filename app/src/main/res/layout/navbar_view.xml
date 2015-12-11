@@ -18,25 +18,7 @@
             android:src="@drawable/profile_hex_icon"
             android:id="@+id/profile_button"
             android:scaleType="centerCrop" />
-
-        <!-- Navbar Button 2 - Gyms -->
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/gym_hex_icon"
-            android:id="@+id/gyms_button"
-            android:scaleType="centerCrop" />
-
-        <!-- Navbar Button 3 - Friends -->
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/friends_hex_icon"
-            android:id="@+id/friends_button"
-            android:scaleType="centerCrop" />
-
+        
         <!-- Navbar Button 4 - Routes -->
         <ImageButton
             android:layout_width="wrap_content"

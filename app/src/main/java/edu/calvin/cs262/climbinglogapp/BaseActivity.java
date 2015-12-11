@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewConfiguration;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by Austin on 11/8/2015.
@@ -18,6 +21,19 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //enable the action bar home button
         getActionBar().setHomeButtonEnabled(true);
+
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        }
+        catch (Exception e) {
+            // presumably, not relevant
+        }
         
     }
     //Creating the options menu on the Action Bar
