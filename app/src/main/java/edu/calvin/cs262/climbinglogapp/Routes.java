@@ -136,7 +136,7 @@ public class Routes extends BaseActivity implements View.OnClickListener {
             if (results != null) {
                 result = results;
                 String[] data = result.split(";");
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, data);
+                adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_list_item_1, android.R.id.text1, data);
                 routesList.setAdapter(adapter);
             }
         }
