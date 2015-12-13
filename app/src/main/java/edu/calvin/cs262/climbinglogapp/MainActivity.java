@@ -1,3 +1,6 @@
+/**
+ * MainActivity.java contains all of the code necessary in order to create our home page.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.app.AlertDialog;
@@ -7,10 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-
 public class MainActivity extends BaseActivity {
 
-    //onCreate method
+    /**
+     * onCreate() method sets up our home page.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,7 @@ public class MainActivity extends BaseActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     /**
      * This will start up the logger should a user click the green button.
      */
@@ -49,5 +54,4 @@ public class MainActivity extends BaseActivity {
         Intent logIntent = new Intent(MainActivity.this, ClimbLogger.class);
         MainActivity.this.startActivity(logIntent);
     }
-
 }
