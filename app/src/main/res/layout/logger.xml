@@ -14,7 +14,7 @@
         android:id="@+id/routeNameField"
         android:text="Route Name (Optional)"
         android:selectAllOnFocus="true"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:paddingLeft="55dp"

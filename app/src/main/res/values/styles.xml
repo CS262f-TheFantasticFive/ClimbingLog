@@ -17,9 +17,7 @@
     <style name="MyOverflow"
         parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
         <item name="android:src">@drawable/questionmark_small</item>
-
     </style>
-
 
     <!-- ActionBar TitleText -->
     <style name="MyActionBarTitleText"

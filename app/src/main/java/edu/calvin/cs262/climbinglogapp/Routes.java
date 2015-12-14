@@ -3,6 +3,8 @@
  */
 package edu.calvin.cs262.climbinglogapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -37,12 +39,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jbu2, Fall 2015
  * Displays the user's climbing activity - all logged climbs
  */
 public class Routes extends BaseActivity {
-    ListView routesList;
-    ArrayAdapter<String> adapter;
+    ListView routesList; //the ListView for displaying the routes
+    ArrayAdapter<String> adapter; //the adapter for the ListView
 
     /**
      * onCreate() sets up the android activity and gets the routes data.
@@ -50,18 +51,18 @@ public class Routes extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routes);  //Set the layout for the page
-        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
+
         ImageButton disableRoutes = (ImageButton) findViewById(R.id.routes_button);  //Disable the corresponding button
         disableRoutes.setEnabled(false);  //To keep people from creating the same activity over and over again
 
         routesList = (ListView) findViewById(R.id.routesListView);  //Get the List View that will display the data
 
-        //Get the data
+        //Get the data to put in that list view
         new LongRunningGetIO().execute();
     }
 
     //URI for the GET method for the climbs of a specific climber
-    private static String CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climbs/climber/0";
+    private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/climber/0";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
@@ -119,7 +120,32 @@ public class Routes extends BaseActivity {
                 routesList.setAdapter(adapter);  //Display the data in the List View
             }
         }
+    }
 
+    /**
+     * This method overrides the onOptionsItemSelected method in order to handle action bar things
+     * specific to this page (eg the help dialog).
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                //simple dialog when the help setting is selected
+                AlertDialog alertDialog = new AlertDialog.Builder(Routes.this).create();
+                alertDialog.setTitle(getString(R.string.action_help));
+                alertDialog.setMessage(getString(R.string.action_help_routes));
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**

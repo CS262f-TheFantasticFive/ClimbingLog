@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:background="@color/sand">
 
+    <!-- This text view is for each list child item -->
     <TextView
         android:id="@+id/lblListItem"
         android:layout_width="fill_parent"

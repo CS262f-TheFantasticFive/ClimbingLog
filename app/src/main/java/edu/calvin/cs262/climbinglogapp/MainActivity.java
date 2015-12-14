@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getActionBar().setIcon(R.drawable.onbelay_app_icon);  //Change the action bar icon to the arrow
     }
 
     /**
