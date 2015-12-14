@@ -50,6 +50,7 @@ public class Routes extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routes);  //Set the layout for the page
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableRoutes = (ImageButton) findViewById(R.id.routes_button);  //Disable the corresponding button
         disableRoutes.setEnabled(false);  //To keep people from creating the same activity over and over again
 

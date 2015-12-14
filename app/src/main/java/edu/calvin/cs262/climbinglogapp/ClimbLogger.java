@@ -56,6 +56,7 @@ public class ClimbLogger extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
 
         //set the edittexts for later usage
         routeField = (EditText) findViewById(R.id.routeNameField);
