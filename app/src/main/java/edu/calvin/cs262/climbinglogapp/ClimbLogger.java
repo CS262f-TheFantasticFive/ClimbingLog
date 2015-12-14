@@ -40,30 +40,28 @@ import java.util.List;
  * @author abs25
  * @author cpd5
  * This is the page that the user will see when the click on the big green button, and allow them
- * to create and submit a climb to the database.
+ *  to create and submit a climb to the database.
  */
 public class ClimbLogger extends BaseActivity {
 
-    EditText routeField, notesField;
-    ExpandableListAdapter listAdapter;
-    ExpandableListView listView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+    EditText routeField, notesField; //edittexts for the routes and notes entry fields
+    ExpandableListAdapter listAdapter; //the adapter for the expandable list
+    ExpandableListView listView; //the expandable list itself
+    List<String> listDataHeader; //the group headers for the expList
+    HashMap<String, List<String>> listDataChild; //the child data for the expList
     String[] valueArray; //array to be sent to the database
-    List<String> difficulty, type, color;
-
+    List<String> difficulty, type, color; //list for all the child data to be entered
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logger);
-        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
 
         //set the edittexts for later usage
         routeField = (EditText) findViewById(R.id.routeNameField);
         notesField = (EditText) findViewById(R.id.notesField);
+        //set the edittext's color
         routeField.setBackgroundColor(getResources().getColor(R.color.ivory));
         notesField.setBackgroundColor(getResources().getColor(R.color.ivory));
-
 
         valueArray = new String[5]; //four values: type, route name, difficulty, color, and notes
 
@@ -73,6 +71,7 @@ public class ClimbLogger extends BaseActivity {
         // preparing list data
         prepareListData();
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
         // setting difficulty list adapter
         listView.setAdapter(listAdapter);
 
@@ -82,26 +81,25 @@ public class ClimbLogger extends BaseActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-
                 //If the route name is entered
                 if (groupPosition == 0) {    //else if the type field is selected
-                        //add value to array
-                        valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
-                        //display the selected value
-                        //Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
-                        //collapse the group after a selection is made
-                        listView.collapseGroup(groupPosition);
+                    //add value to array
+                    valueArray[1] = parent.getExpandableListAdapter().getChild(groupPosition, childPosition).toString();
+                    //display the selected value
+                    //Toast.makeText(getApplicationContext(), valueArray[1] + " added!", Toast.LENGTH_SHORT).show();
+                    //collapse the group after a selection is made
+                    listView.collapseGroup(groupPosition);
 
-                        if (childPosition == 0) {
-                            addTopRopeDiffData();
-                        } else if (childPosition == 1) {
-                            addBoulderDiffData();
-                        }
+                    //this checks which type is selected and displays the corresponding data
+                    if (childPosition == 0) {
+                        addTopRopeDiffData();
+                    } else if (childPosition == 1) {
+                        addBoulderDiffData();
+                    }
 
                     listDataHeader.remove(0);
                     listDataHeader.add(0, "Type" + " - " + valueArray[1]);
                     listDataChild.put(listDataHeader.get(0), type); // Header, Child data
-
 
                 } else if (groupPosition == 1) {    //else if the difficulty field is selected
                     //add value to array
@@ -111,13 +109,12 @@ public class ClimbLogger extends BaseActivity {
                     //collapse the group after a selection is made
                     listView.collapseGroup(groupPosition);
 
-                    if(!(valueArray[2].equals("Please enter a difficulty first."))) {
+                    if (!(valueArray[2].equals("Please enter a difficulty first."))) {
                         //this replaces the group header by:
                         listDataHeader.remove(1);//removing the old header
                         listDataHeader.add(1, "Difficulty" + " - " + valueArray[2]); //adding the selected data
                         listDataChild.put(listDataHeader.get(1), difficulty); //putting the new header and child data back into the list
                     }
-
 
                 } else if (groupPosition == 2) {    //else if the color field is selected
                     //add value to array
@@ -136,9 +133,8 @@ public class ClimbLogger extends BaseActivity {
             }
         });
 
-
         /**
-         * These two methods check for presses outside of the keyboard, and if there are, hide the keyboard
+         * These two sections check for presses outside of the keyboard, and if there are, hide the keyboard
          */
         routeField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -156,14 +152,11 @@ public class ClimbLogger extends BaseActivity {
                 }
             }
         });
-
     }
 
-
-    /*
+    /**
      * Preparing the list data
      */
-
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
         listDataChild = new HashMap<>();
@@ -202,10 +195,11 @@ public class ClimbLogger extends BaseActivity {
         listDataChild.put(listDataHeader.get(0), type); // Header, Child data
         listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
         listDataChild.put(listDataHeader.get(2), color); // Header, Child data
-
     }
 
-    // this gets called if type top rope gets selected
+    /**
+     * this gets called if type top rope gets selected
+     */
     public void addTopRopeDiffData() {
         //clear whatever is in the difficulty list
         difficulty.clear();
@@ -254,7 +248,9 @@ public class ClimbLogger extends BaseActivity {
         listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
     }
 
-    // this gets called if type boulder gets selected
+    /**
+     * this gets called if type boulder gets selected
+     */
     public void addBoulderDiffData() {
         //clear whatever is in the difficulty list
         difficulty.clear();
@@ -263,14 +259,15 @@ public class ClimbLogger extends BaseActivity {
         difficulty.add("V0-");
         difficulty.add("V0");
         difficulty.add("V0+");
-        for(int i = 1; i < 17; i++){
+        for (int i = 1; i < 17; i++) {
             difficulty.add("V" + i);
         }
-
         listDataChild.put(listDataHeader.get(1), difficulty); // Header, Child data
     }
 
-    //this method handles the submit button and sends the app back to the home page
+    /**
+     * this method handles the submit button and sends the app back to the home page
+     */
     public void submit(View view) {
 
         //if the edittexts have something other than the default value or empty, then add them to the valueArray
@@ -296,32 +293,13 @@ public class ClimbLogger extends BaseActivity {
     }
 
 
+    /**
+     * This method keeps the keyboard from popping up when the log page is opened.
+     */
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
-
-  /*  @Override
-    public void onPause() {
-        super.onPause();
-        AlertDialog.Builder leaveDialogBuilder = new AlertDialog.Builder(ClimbLogger.this);
-        leaveDialogBuilder.setMessage("Some data has been entered. Are you sure you want to leave?");
-        leaveDialogBuilder.setPositiveButton("Leave Anyway", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        leaveDialogBuilder.setNegativeButton("Keep Entering Data", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                onResume();
-            }
-        });
-
-        AlertDialog leaveDialog = leaveDialogBuilder.create();
-        leaveDialog.show();
-    }
-*/
 
     /**
      * This method overrides the onOptionsItemSelected method in order to handle action bar things
@@ -350,7 +328,7 @@ public class ClimbLogger extends BaseActivity {
     }
 
     //URI for the POST method for adding new climbs to the database
-    private static String NEW_CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climb";
+    private static String NEW_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climb";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).

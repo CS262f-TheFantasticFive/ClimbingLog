@@ -21,12 +21,16 @@
     <string name="stats_label">My Stats</string>
     <string name="profile_label">My Profile</string>
     <string name="user_name">Sgt. Squiggles</string>
+    <string name="action_help_profile">This is your profile page.
+        \nIt shows your username, bio, profile picture, and two of your most recent climbs.</string>
 
     <!-- Routes -->
     <string name="routes_label">My Routes</string>
+    <string name="action_help_routes">Yada yada</string>
 
     <!-- Friends -->
     <string name="friends_label">My Friends</string>
+    <string name="action_help_friends">Here you can view your friends.</string>
 
     <!-- Navbar -->
     <string name="NB_profile_label">Profile</string>
@@ -49,8 +53,5 @@
         \n\n5. In the "Notes" section, enter any additional comments or notes you have about the climb. This section is optional.
         \n\n6. Press the "Log It" button to submit the log.
     </string>
-
-    <!-- Radio buttons -->
-    <string name="radio_indoor">Indoor</string>
 
 </resources>

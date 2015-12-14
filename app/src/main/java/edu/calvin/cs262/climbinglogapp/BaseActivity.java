@@ -29,6 +29,8 @@ public class BaseActivity extends FragmentActivity {
         //enable the action bar home button
         getActionBar().setHomeButtonEnabled(true);
 
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
+
         //Set the right action bar key to show up
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
@@ -56,6 +58,7 @@ public class BaseActivity extends FragmentActivity {
 
     /**
      * onOptionsItemSelected() handles presses on the action bar items as appropriate.
+     * It also sets the default dialogs for help and credits
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

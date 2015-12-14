@@ -3,6 +3,7 @@ package edu.calvin.cs262.climbinglogapp;
 /**
  * This is an adapter for the expandable list view on the log page.
  * It feeds the ExpList the group header data and the child data.
+ * I found the code for this from http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
  */
 import android.content.Context;
 import android.graphics.Typeface;

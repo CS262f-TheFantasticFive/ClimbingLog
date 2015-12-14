@@ -43,15 +43,15 @@ public class Profile extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
-        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableProfile = (ImageButton) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
         disableProfile.setEnabled(false);  //To keep people from creating the Profile activity over and over again
 
-        TextView bio_display = (TextView) findViewById(R.id.bio_display);
+        TextView bio_display = (TextView) findViewById(R.id.bio_display); //this sets the text view for the user bio
 
-        profile_routes_List = (ListView) findViewById(R.id.routes_profile_display);
+        profile_routes_List = (ListView) findViewById(R.id.routes_profile_display); //this sets the ListView for the data
+
         /**
-         * This method checks for presses outside of the keyboard, and if there are, hides the keyboard.
+         * This section checks for presses outside of the keyboard, and if there are, hides the keyboard.
          */
         bio_display.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -62,7 +62,7 @@ public class Profile extends BaseActivity {
             }
         });
 
-        //Get the data
+        //Get the data from the database
         new LongRunningGetIO().execute();
     }
 
@@ -78,7 +78,7 @@ public class Profile extends BaseActivity {
                 //simple dialog when the help setting is selected
                 AlertDialog alertDialog = new AlertDialog.Builder(Profile.this).create();
                 alertDialog.setTitle(getString(R.string.action_help));
-                alertDialog.setMessage(getString(R.string.profile_label));
+                alertDialog.setMessage(getString(R.string.action_help_profile));
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -92,13 +92,16 @@ public class Profile extends BaseActivity {
         }
     }
 
+    /**
+     * This method keeps the keyboard from popping up when the Profile page is opened.
+     */
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     //URI for the GET method for the most recent climbs
-    private static String PROFILE_CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climbs/recent/0";
+    private static String PROFILE_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/recent/0";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
@@ -156,7 +159,6 @@ public class Profile extends BaseActivity {
                 profile_routes_List.setAdapter(adapter); //Display it on the List View
             }
         }
-
     }
 
     /**
