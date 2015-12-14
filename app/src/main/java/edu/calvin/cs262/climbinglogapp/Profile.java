@@ -101,7 +101,7 @@ public class Profile extends BaseActivity {
     }
 
     //URI for the GET method for the most recent climbs
-    private static String PROFILE_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/recent/0";
+    private static String PROFILE_CLIMBS_URI = "http://153.106.87.105:9998/climbingserver/climbs/recent/0";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).

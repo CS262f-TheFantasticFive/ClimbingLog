@@ -48,7 +48,7 @@ public class Friends extends BaseActivity {
     }
 
     //URI for the friends GET method
-    private static String FRIENDS_URI = "http://10.0.2.2:9998/climbingserver/friends/0";
+    private static String FRIENDS_URI = "http://153.106.87.105:9998/climbingserver/friends/0";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).

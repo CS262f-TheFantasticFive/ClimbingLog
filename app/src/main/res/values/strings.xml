@@ -20,13 +20,14 @@
     <!-- Profile -->
     <string name="stats_label">My Stats</string>
     <string name="profile_label">My Profile</string>
-    <string name="user_name">Sgt. Squiggles</string>
+    <string name="user_name">Mr. John Doe</string>
     <string name="action_help_profile">This is your profile page.
         \nIt shows your username, bio, profile picture, and two of your most recent climbs.</string>
 
     <!-- Routes -->
     <string name="routes_label">My Routes</string>
-    <string name="action_help_routes">Yada yada</string>
+    <string name="action_help_routes">This lists your routes.\nYour most recent route is at the top of the page.
+                                        \nIf nothing shows up, go to the Log page and log a route.</string>
 
     <!-- Friends -->
     <string name="friends_label">My Friends</string>
@@ -50,7 +51,7 @@
         \n\n2. From the "Type" drop-down menu, select the type of your climb.
         \n\n3. From the "Difficulty" drop-down menu, select the difficulty of the climb.
         \n\n4. From the "Color" drop-down menu, select the color of the route.
-        \n\n5. In the "Notes" section, enter any additional comments or notes you have about the climb. This section is optional.
+        \n5. In the "Notes" section, enter any additional comments or notes you have about the climb. This section is optional.
         \n\n6. Press the "Log It" button to submit the log.
     </string>
 
