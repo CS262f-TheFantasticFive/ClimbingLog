@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-
         </activity>
 
         <!-- Profile page -->
@@ -36,9 +35,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DATA" />
                 <action android:name="android.intent.action.PICK" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
 
         </activity>
@@ -52,9 +49,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DATA" />
                 <action android:name="android.intent.action.PICK" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
 
         </activity>
@@ -68,9 +63,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DATA" />
                 <action android:name="android.intent.action.PICK" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
 
         </activity>
@@ -80,9 +73,7 @@
             android:label="@string/logger_label"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
-
         </activity>
 
     </application>
-
 </manifest>

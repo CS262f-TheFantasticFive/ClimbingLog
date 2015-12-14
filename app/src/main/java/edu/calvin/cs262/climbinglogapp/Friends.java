@@ -3,8 +3,11 @@
  */
 package edu.calvin.cs262.climbinglogapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -28,7 +31,7 @@ import java.io.InputStream;
 public class Friends extends BaseActivity {
 
     ListView friendsList;  //Displays the friends list
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter; //the adapter for the ListView
 
     /**
      * onCreate() method sets up our Friends page and gets the friend data for the user.
@@ -36,7 +39,6 @@ public class Friends extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
-        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
         disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
         friendsList = (ListView) findViewById(R.id.friends_view);  //Get the display
@@ -46,7 +48,7 @@ public class Friends extends BaseActivity {
     }
 
     //URI for the friends GET method
-    private static String FRIENDS_URI = "http://10.0.0.4:9998/climbingserver/friends/0";
+    private static String FRIENDS_URI = "http://10.0.2.2:9998/climbingserver/friends/0";
 
     /**
      * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
@@ -105,6 +107,32 @@ public class Friends extends BaseActivity {
             }
         }
 
+    }
+
+    /**
+     * This method overrides the onOptionsItemSelected method in order to handle action bar things
+     * specific to this page (eg the help dialog).
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                //simple dialog when the help setting is selected
+                AlertDialog alertDialog = new AlertDialog.Builder(Friends.this).create();
+                alertDialog.setTitle(getString(R.string.action_help));
+                alertDialog.setMessage(getString(R.string.action_help_friends));
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**
