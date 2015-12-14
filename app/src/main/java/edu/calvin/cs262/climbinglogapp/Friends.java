@@ -36,6 +36,7 @@ public class Friends extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
         disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
         friendsList = (ListView) findViewById(R.id.friends_view);  //Get the display

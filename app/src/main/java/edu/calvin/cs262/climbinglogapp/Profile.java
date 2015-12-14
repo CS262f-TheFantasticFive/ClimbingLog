@@ -43,6 +43,7 @@ public class Profile extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableProfile = (ImageButton) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
         disableProfile.setEnabled(false);  //To keep people from creating the Profile activity over and over again
 
