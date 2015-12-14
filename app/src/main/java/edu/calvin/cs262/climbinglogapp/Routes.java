@@ -1,3 +1,6 @@
+/**
+ * Routes.java contains all of the code necessary in order to create our Routes page.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.os.Bundle;
@@ -37,52 +40,39 @@ import java.util.List;
  * Created by jbu2, Fall 2015
  * Displays the user's climbing activity - all logged climbs
  */
-public class Routes extends BaseActivity implements View.OnClickListener {
-    String[] myData;
-
+public class Routes extends BaseActivity {
     ListView routesList;
-    String[] values;
     ArrayAdapter<String> adapter;
 
-    //onCreate() method
+    /**
+     * onCreate() sets up the android activity and gets the routes data.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.routes);
+        setContentView(R.layout.routes);  //Set the layout for the page
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableRoutes = (ImageButton) findViewById(R.id.routes_button);  //Disable the corresponding button
         disableRoutes.setEnabled(false);  //To keep people from creating the same activity over and over again
 
-        routesList = (ListView) findViewById(R.id.routesListView);
+        routesList = (ListView) findViewById(R.id.routesListView);  //Get the List View that will display the data
 
-        //get the data
+        //Get the data
         new LongRunningGetIO().execute();
-
-     //   values = new String[] {"hi", "bye", "i ran out of things to say", "hi chris"};
-      //  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-      //  routesList.setAdapter(adapter);
-
-
-
     }
 
-    @Override
-    public void onClick(View arg0) {
-        // Button b = (Button) findViewById(R.id.get_routes_button);
-        // b.setClickable(false);
-        //new LongRunningGetIO().execute();
-    }
+    //URI for the GET method for the climbs of a specific climber
+    private static String CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climbs/climber/0";
 
-    private static String CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs";
-
+    /**
+     * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
+     * Adapted from Lab09 code.
+     */
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
         String result;
 
         /**
          * This method extracts text from the HTTP response entity.
-         *
-         * @param entity
-         * @return
-         * @throws IllegalStateException
-         * @throws IOException
+         * Adapted from Lab09 code.
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
                InputStream in = entity.getContent();
@@ -93,23 +83,12 @@ public class Routes extends BaseActivity implements View.OnClickListener {
                   n = in.read(b);
                   if (n > 0) out.append(new String(b, 0, n));
               }
-         /**   BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
-            StringBuilder total = new StringBuilder();
-            String[] data = new String[400];
-            String holder = "";
-            int i = 0;
-            while((holder = reader.readLine()) != null) {
-                myData[i] = holder;
-                i++;
-            } */
             return out.toString();
         }
 
         /**
          * This method issues the HTTP GET request.
-         *
-         * @param params
-         * @return
+         * Adapted from Lab09 code.
          */
         @Override
         protected String doInBackground(Void... params) {
@@ -129,21 +108,23 @@ public class Routes extends BaseActivity implements View.OnClickListener {
 
         /**
          * The method takes the results of the request, when they arrive, and updates the interface.
-         *
-         * @param results
+         * Adapted from Lab09 code.
+         * Credit goes to Team Raging Narwahls for figuring this out. (Code adapted from their app code).
          */
         protected void onPostExecute(String results) {
             if (results != null) {
-                result = results;
-                String[] data = result.split(";");
+                result = results;  //Store the results of the GET request.
+                String[] data = result.split(";");  //Split the String up by semicolons (placed by the GET method)
                 adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_list_item_1, android.R.id.text1, data);
-                routesList.setAdapter(adapter);
+                routesList.setAdapter(adapter);  //Display the data in the List View
             }
         }
 
     }
 
-    //onPause() method
+    /**
+     * onPause() method calls the parent onPause() method in order to pause the activity when not in scope.
+     */
     protected void onPause() {
         super.onPause();
     }

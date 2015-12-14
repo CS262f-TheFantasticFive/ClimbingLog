@@ -7,8 +7,6 @@
     android:clickable="true"
     android:focusableInTouchMode="true">
 
-    <!-- Navbar Fragment -->
-
     <!-- Route Name -->
     <EditText
         android:layout_width="match_parent"
@@ -32,10 +30,8 @@
         android:id="@+id/expandableListView"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/routeNameField"
-
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp" />
-
 
     <!-- Notes -->
     <EditText
@@ -73,6 +69,5 @@
         android:paddingBottom="15dp"
         android:textStyle="bold"
         android:textSize="22dp" />
-
 
 </RelativeLayout>

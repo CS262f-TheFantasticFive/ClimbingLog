@@ -1,9 +1,11 @@
+/**
+ * Friends.java contains the code necessary in order to create our Friends page.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -25,34 +27,37 @@ import java.io.InputStream;
  */
 public class Friends extends BaseActivity {
 
-    ListView friendsList;
+    ListView friendsList;  //Displays the friends list
     ArrayAdapter<String> adapter;
 
-    //onCreate() method
+    /**
+     * onCreate() method sets up our Friends page and gets the friend data for the user.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends);
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableFriends = (ImageButton) findViewById(R.id.friends_button);  //Disable the corresponding button
         disableFriends.setEnabled(false);  //To prevent people from creating the same activity over and over again
-        friendsList = (ListView) findViewById(R.id.friends_view);
+        friendsList = (ListView) findViewById(R.id.friends_view);  //Get the display
 
-        //get the data
+        //Get the data
         new LongRunningGetIO().execute();
     }
 
-    //Set to 0 for now
-    private static String FRIENDS_URI = "http://10.0.2.2:9998/climbingserver/friends/0";
+    //URI for the friends GET method
+    private static String FRIENDS_URI = "http://10.0.0.4:9998/climbingserver/friends/0";
 
+    /**
+     * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
+     * Adapted from Lab09 code.
+     */
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
         String result;
 
         /**
          * This method extracts text from the HTTP response entity.
-         *
-         * @param entity
-         * @return
-         * @throws IllegalStateException
-         * @throws IOException
+         * Adapted from Lab09 code.
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
             InputStream in = entity.getContent();
@@ -63,23 +68,12 @@ public class Friends extends BaseActivity {
                 n = in.read(b);
                 if (n > 0) out.append(new String(b, 0, n));
             }
-            /**   BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
-             StringBuilder total = new StringBuilder();
-             String[] data = new String[400];
-             String holder = "";
-             int i = 0;
-             while((holder = reader.readLine()) != null) {
-             myData[i] = holder;
-             i++;
-             } */
             return out.toString();
         }
 
         /**
          * This method issues the HTTP GET request.
-         *
-         * @param params
-         * @return
+         * Adapted from Lab09 code.
          */
         @Override
         protected String doInBackground(Void... params) {
@@ -99,8 +93,8 @@ public class Friends extends BaseActivity {
 
         /**
          * The method takes the results of the request, when they arrive, and updates the interface.
-         *
-         * @param results
+         * Adapted from Lab09 code.
+         * Credit goes to Team Raging Narwahls for figuring this out. (Code adapted from their app code).
          */
         protected void onPostExecute(String results) {
             if (results != null) {
@@ -113,7 +107,9 @@ public class Friends extends BaseActivity {
 
     }
 
-    //onPause() method
+    /**
+     * onPause() method calls the parent onPause() method in order to pause the activity when not in scope.
+     */
     protected void onPause() {
         super.onPause();
     }

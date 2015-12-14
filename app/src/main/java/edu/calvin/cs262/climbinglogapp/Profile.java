@@ -1,3 +1,6 @@
+/**
+ * Profile.java contains all of the code necessary in order to create our Profile page.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.app.Activity;
@@ -9,8 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,13 +34,16 @@ import java.io.InputStream;
  */
 public class Profile extends BaseActivity {
 
-    ListView profile_routes_List;
+    ListView profile_routes_List;  //Displays the most recent routes for the user
     ArrayAdapter<String> adapter;
 
-    //onCreate() method
+    /**
+     * onCreate() method sets up the Profile page and gets the most recent climb data.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+        getActionBar().setIcon(R.drawable.home);  //Change the action bar icon to the arrow
         ImageButton disableProfile = (ImageButton) findViewById(R.id.profile_button);  //Disable the corresponding Profile button
         disableProfile.setEnabled(false);  //To keep people from creating the Profile activity over and over again
 
@@ -47,7 +51,7 @@ public class Profile extends BaseActivity {
 
         profile_routes_List = (ListView) findViewById(R.id.routes_profile_display);
         /**
-         * This method checks for presses outside of the keyboard, and if there are, hides the keyboard
+         * This method checks for presses outside of the keyboard, and if there are, hides the keyboard.
          */
         bio_display.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -58,7 +62,7 @@ public class Profile extends BaseActivity {
             }
         });
 
-        //get the data
+        //Get the data
         new LongRunningGetIO().execute();
     }
 
@@ -93,18 +97,19 @@ public class Profile extends BaseActivity {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private static String PROFILE_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climbs/recent/0";
+    //URI for the GET method for the most recent climbs
+    private static String PROFILE_CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climbs/recent/0";
 
+    /**
+     * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
+     * Adapted from Lab09 code.
+     */
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
         String result;
 
         /**
          * This method extracts text from the HTTP response entity.
-         *
-         * @param entity
-         * @return
-         * @throws IllegalStateException
-         * @throws IOException
+         * Adapted from Lab09 code.
          */
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
             InputStream in = entity.getContent();
@@ -120,9 +125,7 @@ public class Profile extends BaseActivity {
 
         /**
          * This method issues the HTTP GET request.
-         *
-         * @param params
-         * @return
+         * Adapted from Lab09 code.
          */
         @Override
         protected String doInBackground(Void... params) {
@@ -142,20 +145,23 @@ public class Profile extends BaseActivity {
 
         /**
          * The method takes the results of the request, when they arrive, and updates the interface.
-         *
-         * @param results
+         * Adapted from Lab09 code.
+         * Credit goes to Team Raging Narwahls for figuring this out. (Code adapted from their app code).
          */
         protected void onPostExecute(String results) {
             if (results != null) {
-                result = results;
-                String[] data = result.split(";");
+                result = results; //Store the data in a String
+                String[] data = result.split(";");  //Split it into an array
                 adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_list_item_1, android.R.id.text1, data);
-                profile_routes_List.setAdapter(adapter);
+                profile_routes_List.setAdapter(adapter); //Display it on the List View
             }
         }
 
     }
-    //onPause method
+
+    /**
+     * onPause() method calls the parent onPause() method in order to pause the activity when not in scope.
+     */
     protected void onPause() {
         super.onPause();
     }

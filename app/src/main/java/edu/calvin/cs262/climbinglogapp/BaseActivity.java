@@ -1,3 +1,6 @@
+/**
+ * BaseActivity.java contains the code necessary in order to have an action bar and NavBar fragment.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.app.AlertDialog;
@@ -12,16 +15,21 @@ import android.view.ViewConfiguration;
 import java.lang.reflect.Field;
 
 /**
- * Created by asb25, Fall 2015
+ * Created by abs25, Fall 2015
  * This base activity will be extended by every other class that needs the action bar.
  */
 public class BaseActivity extends FragmentActivity {
+
+    /**
+     * onCreate() method sets up the action bar for every page.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //enable the action bar home button
         getActionBar().setHomeButtonEnabled(true);
 
+        //Set the right action bar key to show up
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
             Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
@@ -34,9 +42,11 @@ public class BaseActivity extends FragmentActivity {
         catch (Exception e) {
             // presumably, not relevant
         }
-        
     }
-    //Creating the options menu on the Action Bar
+
+    /**
+     * onCreateOptionsMenu() method creates the options menu for the action bar.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -44,10 +54,11 @@ public class BaseActivity extends FragmentActivity {
         return true;
     }
 
-    //Action Bar options method
+    /**
+     * onOptionsItemSelected() handles presses on the action bar items as appropriate.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
         switch (item.getItemId()) {
             //handle the action bar home button press
             case android.R.id.home:

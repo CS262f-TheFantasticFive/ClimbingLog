@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/NavBar"
+    >
 
-    android:id="@+id/NavBar">
-
+    <!-- Layout for the buttons on the NavBar -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
