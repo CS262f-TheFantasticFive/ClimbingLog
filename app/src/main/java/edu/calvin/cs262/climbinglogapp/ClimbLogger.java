@@ -1,5 +1,7 @@
+/**
+ * ClimbLogger.java contains all of the code necessary in order to create our logger page.
+ */
 package edu.calvin.cs262.climbinglogapp;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,7 +24,6 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -203,8 +204,6 @@ public class ClimbLogger extends BaseActivity {
 
     }
 
-
-
     // this gets called if type top rope gets selected
     public void addTopRopeDiffData() {
         //clear whatever is in the difficulty list
@@ -349,17 +348,18 @@ public class ClimbLogger extends BaseActivity {
         }
     }
 
+    //URI for the POST method for adding new climbs to the database
+    private static String NEW_CLIMBS_URI = "http://10.0.0.4:9998/climbingserver/climb";
 
-    private static String NEW_CLIMBS_URI = "http://10.0.2.2:9998/climbingserver/climb";
-
-
+    /**
+     * LongRunningGetIO class contains the data necessary in order to do an IO task (GET, POST...).
+     * Adapted from Lab09 code.
+     */
     private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 
         /**
-         * This method issues the HTTP GET request.
-         *
-         * @param params
-         * @return
+         * This method issues the HTTP POST request.
+         * Adapted from Lab09 code.
          */
         @Override
         protected String doInBackground(Void... params) {
@@ -368,8 +368,6 @@ public class ClimbLogger extends BaseActivity {
             HttpPost httpPost = new HttpPost(NEW_CLIMBS_URI);  //Create the POST
 
             try {
-                //0 = name, 1 = type, 2 = difficulty, 3 = color, 4 = notes
-                //routeName color difficulty types notes
                 //Get the data from the user
                 String input = valueArray[0] + ":" + valueArray[3] + ":" + valueArray[2] + ":" + valueArray[1] + ":" + valueArray[4];
                 StringEntity data = new StringEntity(input);  //Create a StringEntity object to hold the input data

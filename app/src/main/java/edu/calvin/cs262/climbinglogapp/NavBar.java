@@ -1,3 +1,6 @@
+/**
+ * NavBar.java contains all of the code necessary in order to create our NavBar Fragment.
+ */
 package edu.calvin.cs262.climbinglogapp;
 
 import android.content.Intent;
